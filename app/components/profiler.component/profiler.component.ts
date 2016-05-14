@@ -6,6 +6,7 @@ import {ListItemComponent} from './list.item.component/list.item.component';
 import {DelayService} from '../../service/delayService';
 
 import Profile = require("profileData");
+import Knowledge = require("knowledge");
 
 @Component({
     templateUrl: '../app/components/profiler.component/profiler.view.html',
@@ -23,6 +24,7 @@ export class ProfilerComponent implements OnInit {
     private objectiveTitle: string;
     private objectiveMessage: string;
     private knowledgeTitle: string;
+    private knowledgeList: Knowledge[];
     private skillTitle: string;
     private profile: Profile;
     
@@ -38,7 +40,11 @@ export class ProfilerComponent implements OnInit {
             var paramsValue = self._routeParams.get('edit');
             self.editStatus = (paramsValue == "edit" || paramsValue == "create") ? true : false;
         }
-
+        
+        self.objectiveTitle = "Objective";
+        self.aboutTitle = "About";
+        self.knowledgeTitle = "Knowledge";
+        
         self.profile = {
             "searchUrl": "sample",
             "basicInfo": {
@@ -49,10 +55,25 @@ export class ProfilerComponent implements OnInit {
                 "address": "No. 50 second cross, kargil nagar, velrampet.",
                 "currentProfession": "Web & UI Developer"
             },
+            
             "objective": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
             "about": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
-        }
-
+            "knowledge": [
+                {
+                    "title": "Knowledge you gainde",
+                    "editStatus": false
+                },
+                {
+                    "title": "Knowledge you gainde",
+                    "editStatus": false
+                },
+            ],
+        };
+        
+        self.knowledgeList = self.profile.knowledge;
+        self.aboutMessage = self.profile.about;
+        self.objectiveMessage = self.profile.objective;
+        
         console.log(self.profile.basicInfo);
     }
 }

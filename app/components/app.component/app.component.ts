@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {HomeComponent} from '../home.component/home.component';
+import {ProfilerComponent} from '../profiler.component/profiler.component';
 
 @Component({
     selector: 'my-app',
@@ -9,7 +10,8 @@ import {HomeComponent} from '../home.component/home.component';
 })
 
 @RouteConfig([
-    { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true }
+    { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
+    { path: '/:profileurl', name: 'Profiler', component: ProfilerComponent }
 ])
 
 export class AppComponent { }

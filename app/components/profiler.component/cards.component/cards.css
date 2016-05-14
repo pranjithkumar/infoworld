@@ -227,3 +227,21 @@
 .edit-col2 {
     background-color:#6098CB; 
 }
+
+.save-btn{
+    font-size: 14px;
+    padding: 4px 5px;
+    background-color: #FF9800;
+    color:#fff;
+    cursor: pointer;
+    display: inline-table;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.btn-continer {
+    position: absolute;
+    top: -23px;
+    right: 20px;
+}

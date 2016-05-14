@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NgForm} from '@angular/common';
 import {RouteParams, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 import {DelayService} from '../../../service/delayService';
+import {SessionUrlHandler} from '../../../shared/infostorage';
 
 import CardInfo = require("cardinfo");
 
@@ -9,7 +10,7 @@ import CardInfo = require("cardinfo");
     selector: 'card-with-title',
     templateUrl: '../app/components/profiler.component/cards.component/cards.view.html',
     styleUrls: ['../app/components/profiler.component/cards.component/cards.css'],
-    providers: [DelayService],
+    providers: [DelayService, SessionUrlHandler],
     directives: [ROUTER_DIRECTIVES]
 })
 export class CardComponent implements OnInit {
@@ -24,7 +25,7 @@ export class CardComponent implements OnInit {
     private editOpen: boolean = false;
     private today: Date = new Date();
 
-    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService) {
+    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler) {
 
     }
 
@@ -57,6 +58,7 @@ export class CardComponent implements OnInit {
         }
 
         this.cardArray.unshift(card);
+
     }
 
     public OpenEdit(event, model, editStatus) {
@@ -71,5 +73,18 @@ export class CardComponent implements OnInit {
             array.splice(index, 1);
             self.cardArray = array;
         }, index);
+    }
+
+    public SaveCardData(model) {
+        let key = "";
+        if (this.title == "Work Experience") {
+            key = "exprience"
+        } else if (this.title == "Education Value") {
+            key = "education"
+        }
+        let self = this;
+        console.log(this.cardArray);
+        self.UrlSession.updateKeyContent(key, this.cardArray);
+        console.log(this.cardArray);
     }
 }

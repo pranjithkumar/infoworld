@@ -2,11 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 import {BaseDetailComponent} from './base.info.component/base.info.component';
 import {TitleWithTextAreaComponent} from './titlewithtextarea.component/titlewithtextarea.component';
+import {ListItemComponent} from './list.item.component/list.item.component';
 import {DelayService} from '../../service/delayService';
 
 @Component({
     templateUrl: '../app/components/profiler.component/profiler.view.html',
-    directives: [ROUTER_DIRECTIVES, BaseDetailComponent, TitleWithTextAreaComponent],
+    directives: [ROUTER_DIRECTIVES, BaseDetailComponent, TitleWithTextAreaComponent, ListItemComponent], 
     providers: [DelayService]
 })
 

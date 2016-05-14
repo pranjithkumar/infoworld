@@ -3,6 +3,7 @@ class ProfileData {
     public basicInfo: BasicInfo;
     public objective: string;
     public about: string;
+    public knowledge: Knowledge[];
 }
 
 class BasicInfo {
@@ -14,7 +15,15 @@ class BasicInfo {
     public currentProfession: string;
 }
 
+class Knowledge {
+    public title: string;
+    public editStatus: boolean;
+}
 
 declare module 'profileData' {
     export = ProfileData;
+}
+
+declare module 'knowledge' {
+    export = Knowledge;
 }

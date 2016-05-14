@@ -1,0 +1,15 @@
+<div class="row" style="padding-left:30px;">
+    <h3 style="color:#6098CB; display: inline-table; text-transform: uppercase; font-size:16px; font-weight:bold; letter-spacing:1;">{{listTitle}}</h3>
+    <div *ngIf="cardEdit" (click)="AddCard()" class="add-card"><i class="fa fa-plus"></i></div>
+    <ul  *ngIf="!cardEdit" style="color:#444; text-transform: uppercase; font-size:11px; padding-left:20px;">
+        <li *ngFor="let item of listItem" style="margin-bottom:5px;">
+            {{item.title}}
+        </li>
+    </ul>
+    <div *ngIf="cardEdit">
+        <div *ngFor="let item of listItem">
+            <div style="display:inline-table;"></div>
+            <div style="display:inline-table;"></div>
+        </div>
+    </div>
+</div>

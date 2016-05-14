@@ -20,10 +20,9 @@ export class BaseDetailComponent implements OnInit {
             displayname: ["", Validators.required],
             currentProfession: ["", Validators.required],
             address: ["", Validators.required],
-            contryCode: ["", Validators.compose([Validators.required, this.phoneValidator])],
-            phoneNumber: ["", Validators.compose([Validators.required, this.phoneValidator])],
+            contryCode: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
+            phoneNumber: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
         });
-       
     }
 
     ngOnInit() {
@@ -32,14 +31,5 @@ export class BaseDetailComponent implements OnInit {
 
     saveBasicInfo(data: any) {
         console.log(data.value);
-    }
-
-    phoneValidator(control: Control): { [key: string]: any } {
-        var emailRegexp = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-        if (control && "value" in control) {
-            if (control.value && !emailRegexp.test(control.value)) {
-                return { invalidEmail: true };
-            }
-        }
     }
 }

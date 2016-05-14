@@ -18,3 +18,24 @@
 .form-group-app input[type="text"]:-ms-input-placeholder {  
    color: #FFF;
 }
+
+
+/*.error-border {
+    width: 4px;
+    background: #F44336 !important;
+    float: left;
+    height: 100%;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.success-border {
+    width: 4px;
+    background: #4CAF50 !important;
+    float: left;
+    height: 100%;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}*/

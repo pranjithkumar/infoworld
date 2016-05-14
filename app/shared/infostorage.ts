@@ -76,9 +76,8 @@ export class SessionUrlHandler extends SessionHandler {
    }else{
      var data = this.sampleJson();
      data['searchUrl']=this.profileurl;
-     return this.createContent(JSON.stringify(data));
-   }
-   return false;
+     return this.createContent(data);
+   } 
   }
   
   public updateContent(data : any) : any {

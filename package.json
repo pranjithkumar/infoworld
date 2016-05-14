@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
+    "js-md5": "^0.4.1",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
     "typings": "^0.8.1"

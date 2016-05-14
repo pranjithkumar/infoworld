@@ -1,13 +1,15 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { FORM_DIRECTIVES, NgControlGroup, Control, FormBuilder, ControlGroup, Validators, AbstractControl  } from '@angular/common';
 import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
+import {SessionUrlHandler} from '../../../shared/infostorage';
 
 
 @Component({
     selector: 'Basic-Info-View',
     templateUrl: '../app/components/profiler.component/base.info.component/base.info.view.html',
     styleUrls: ['../app/components/profiler.component/base.info.component/base.info.css', "../app/components/profiler.component/profiler.css"],
-    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
+    providers: [SessionUrlHandler]
 })
 
 export class BaseDetailComponent implements OnInit {
@@ -15,7 +17,7 @@ export class BaseDetailComponent implements OnInit {
     @Input('baseInfoData') baseInfo: any;
     private basicinfoForm: ControlGroup;
 
-    constructor(private _routeParams: RouteParams, builder: FormBuilder) {
+    constructor(private _routeParams: RouteParams, builder: FormBuilder, private UrlSession: SessionUrlHandler) {
         this.basicinfoForm = builder.group({
             displayname: ["", Validators.required],
             currentProfession: ["", Validators.required],
@@ -27,9 +29,13 @@ export class BaseDetailComponent implements OnInit {
 
     ngOnInit() {
         console.log(this.baseInfo);
+        
+        
     }
 
     saveBasicInfo(data: any) {
+        let self = this;
         console.log(data.value);
+        self.UrlSession.updateKeyContent("basicInfo", data.value);
     }
 }

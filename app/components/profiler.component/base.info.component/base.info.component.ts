@@ -5,7 +5,7 @@ import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated
 @Component({
     selector: 'Basic-Info-View',
     templateUrl: '../app/components/profiler.component/base.info.component/base.info.view.html',
-    styleUrls: ['../app/components/profiler.component/base.info.component/base.info.css'],
+    styleUrls: ['../app/components/profiler.component/base.info.component/base.info.css', "../app/components/profiler.component/profiler.css"],
     directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES]
 })
 
@@ -33,7 +33,7 @@ export class BaseDetailComponent implements OnInit {
     saveBasicInfo(data: any) {
         console.log(data.value);
     }
-    
+
     phoneValidator(control: Control): { [key: string]: any } {
         var emailRegexp = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
         if (control && "value" in control) {

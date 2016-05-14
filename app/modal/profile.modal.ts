@@ -4,6 +4,7 @@ class ProfileData {
     public objective: string;
     public about: string;
     public knowledge: Knowledge[];
+    public skill: Skill[];
 }
 
 class BasicInfo {
@@ -20,10 +21,19 @@ class Knowledge {
     public editStatus: boolean;
 }
 
+class Skill {
+    public title: string;
+    public percentage: number;
+}
+
 declare module 'profileData' {
     export = ProfileData;
 }
 
 declare module 'knowledge' {
     export = Knowledge;
+}
+
+declare module 'skill' {
+    export = Skill;
 }

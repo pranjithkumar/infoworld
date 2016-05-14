@@ -3,6 +3,7 @@ import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated
 import {BaseDetailComponent} from './base.info.component/base.info.component';
 import {TitleWithTextAreaComponent} from './titlewithtextarea.component/titlewithtextarea.component';
 import {ListItemComponent} from './list.item.component/list.item.component';
+import {ListWithProgressComponent} from './listwithprogressbar.component/listwithprogressbar.component';
 import {DelayService} from '../../service/delayService';
 
 import Profile = require("profileData");
@@ -10,7 +11,7 @@ import Knowledge = require("knowledge");
 
 @Component({
     templateUrl: '../app/components/profiler.component/profiler.view.html',
-    directives: [ROUTER_DIRECTIVES, BaseDetailComponent, TitleWithTextAreaComponent, ListItemComponent], 
+    directives: [ROUTER_DIRECTIVES, BaseDetailComponent, TitleWithTextAreaComponent, ListItemComponent, ListWithProgressComponent], 
     providers: [DelayService]
 })
 
@@ -26,6 +27,7 @@ export class ProfilerComponent implements OnInit {
     private knowledgeTitle: string;
     private knowledgeList: Knowledge[];
     private skillTitle: string;
+    private skillList: Skill[];
     private profile: Profile;
     
     constructor(private _routeParams: RouteParams,
@@ -44,6 +46,7 @@ export class ProfilerComponent implements OnInit {
         self.objectiveTitle = "Objective";
         self.aboutTitle = "About";
         self.knowledgeTitle = "Knowledge";
+        self.skillTitle = "Skill";
         
         self.profile = {
             "searchUrl": "sample",
@@ -68,11 +71,22 @@ export class ProfilerComponent implements OnInit {
                     "editStatus": false
                 },
             ],
+            "skill": [
+                {
+                    "title": "Technologies",
+                    "percentage": 80
+                },
+                {
+                    "title": "Specialities",
+                    "percentage": 60
+                }
+            ],
         };
         
         self.knowledgeList = self.profile.knowledge;
         self.aboutMessage = self.profile.about;
         self.objectiveMessage = self.profile.objective;
+        self.skillList = self.profile.skill;
         
         console.log(self.profile.basicInfo);
     }

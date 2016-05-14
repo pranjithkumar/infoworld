@@ -1,0 +1,10 @@
+<div class="row" style="padding-left:30px; color:#444;">
+    <h3 style="display:inline-table; color:#6098CB; text-transform: uppercase; font-size:16px; font-weight:bold; letter-spacing:1;">{{listTitle}}</h3>
+    <div *ngIf="cardEdit" (click)="AddCard()" class="add-card"><i class="fa fa-plus"></i></div>
+    <div *ngFor="let item of listItem" style="text-transform: uppercase; font-size:12px; margin-bottom:8px;">
+        <div style="margin-bottom:2px;">{{item.title +" - "+ item.percentage}}</div>
+        <div style="border:1px solid #ccc; width:85%;">
+            <div [style.width.%]="item.percentage" style="height:6px; background-color:#6098CB;"></div>
+        </div>
+    </div>
+</div>

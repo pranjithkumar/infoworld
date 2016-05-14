@@ -20,8 +20,8 @@ export class BaseDetailComponent implements OnInit {
                 name: ["", Validators.required],
                 currentProfession: ["", Validators.required],
                 address: ["", Validators.required],
-                contryCode: ["", Validators.compose([Validators.required, this.phoneValidator])],
-                phoneNumber: ["", Validators.compose([Validators.required, this.phoneValidator])],
+                contryCode: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
+                phoneNumber: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
             });
 
     }

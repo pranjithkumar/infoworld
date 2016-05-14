@@ -24,7 +24,7 @@ export class ProfilerComponent implements OnInit {
     private knowledgeTitle: string;
     private skillTitle: string;
     private profile: Profile;
-    
+
     constructor(private _routeParams: RouteParams,
         private route: Router) {
     }
@@ -42,8 +42,8 @@ export class ProfilerComponent implements OnInit {
             "searchUrl": "sample",
             "basicInfo": {
                 "profileImage": "",
-                "title": "Mr",
                 "name": "Sample Name",
+                "contryCode": 91,
                 "phoneNumber": 9715261931,
                 "address": "No. 50 second cross, kargil nagar, velrampet.",
                 "currentProfession": "Web & UI Developer"

@@ -4,14 +4,66 @@
     </div>
 </div>
 <div class="col-lg-9" style="margin-top:30px; padding-left:30px;">
-    <span style="font-size:30px; font-weight:bolder; display:block;" [attr.contenteditable]="basicInfoEdit" >{{baseInfo.title}}. {{baseInfo.name}}</span>
-    <div style="padding-left:10px;">
-        <span style="font-size:14px; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.currentProfession}}</span>
-        <div style="margin-top:10px;">
-            <span style="font-size:12px; display:block; margin-bottom:5px;"><span style="margin-right:5px;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.address}}</span><i class="fa fa-map-marker"></i></span>
-            <span style="font-size:12px; display:block;"><span style="margin-right:5px;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.phoneNumber}}</span>
-            <i class="fa fa-phone"></i>
-            </span>
+    <div *ngIf="!basicInfoEdit">
+        <span style="font-size:30px; font-weight:bolder; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.name}}</span>
+        <div style="padding-left:10px;">
+            <span style="font-size:14px; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.currentProfession}}</span>
+            <div style="margin-top:10px;">
+                <span style="font-size:12px; display:block; margin-bottom:5px;"><span style="margin-right:5px;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.address}}</span>
+                <i class="fa fa-map-marker"></i>
+                </span>
+                <span style="font-size:12px; display:block;"><span style="margin-right:5px;" [attr.contenteditable]="basicInfoEdit">+{{baseInfo.contryCode}} {{baseInfo.phoneNumber}}</span>
+                <i class="fa fa-phone"></i>
+                </span>
+            </div>
         </div>
+    </div>
+
+    <div *ngIf="basicInfoEdit">
+        <form [ngFormModel]="basicinfoForm" (ngSubmit)="onSubmit(basicinfoForm)" novalidate>
+            <div>
+                <div>
+                    <div class="form-group-app">
+                        <div class="normal-border" [class.error-border]="!basicinfoForm.controls.name.valid" [class.success-border]="basicinfoForm.controls.name.valid"></div>
+                        <div class="form-input">
+                            <input #name="ngForm" [(ngModel)]="baseInfo.name" type="text" [ngFormControl]="basicinfoForm.controls['name']" required placeholder="Display Name"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group-app">
+                        <div class="normal-border" [class.error-border]="!basicinfoForm.controls.currentProfession.valid" [class.success-border]="basicinfoForm.controls.currentProfession.valid"></div>
+                        <div class="form-input">
+                            <input #currentProfession="ngForm" [(ngModel)]="baseInfo.currentProfession" type="text" [ngFormControl]="basicinfoForm.controls['currentProfession']" required placeholder="Profession" />
+                        </div>
+                    </div>
+                </div>
+                <div class="margin-t-5p">
+                    <div class="form-group-app">
+                        <div class="normal-border" [class.error-border]="!basicinfoForm.controls.address.valid" [class.success-border]="basicinfoForm.controls.address.valid"></div>
+                        <div class="form-input">
+                            <input type="text" #address="ngForm" [(ngModel)]="baseInfo.address" [ngFormControl]="basicinfoForm.controls['address']" required placeholder="address" />
+                        </div>
+                    </div>
+                    <div class="form-group-app">
+                        <div class="normal-border" [class.error-border]="!basicinfoForm.controls.contryCode.valid" [class.success-border]="basicinfoForm.controls.contryCode.valid"></div>
+                        <div class="form-input">
+                            <input type="text" #contryCode="ngForm" [(ngModel)]="baseInfo.contryCode" [ngFormControl]="basicinfoForm.controls['contryCode']" required placeholder="contryCode" />
+                        </div>
+                    </div>
+                    <div class="form-group-app">
+                        <div class="normal-border" [class.error-border]="!basicinfoForm.controls.phoneNumber.valid" [class.success-border]="basicinfoForm.controls.phoneNumber.valid"></div>
+                        <div class="form-input">
+                            <input type="text" #phoneNumber="ngForm" [(ngModel)]="baseInfo.phoneNumber" [ngFormControl]="basicinfoForm.controls['phoneNumber']" required placeholder="phoneNumber" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="btn-continer" [hidden]="!basicInfoEdit">
+        <button class="save-btn"  (click)="saveBasicInfo(basicinfoForm)"> 
+           <span> <i class="fa fa-cloud" aria-hidden="true"></i> Save</span>
+        </button>
     </div>
 </div>

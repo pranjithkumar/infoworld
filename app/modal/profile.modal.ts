@@ -7,9 +7,9 @@ class ProfileData {
 
 class BasicInfo {
     public profileImage: string;
-    public title: string;
     public name: string;
     public phoneNumber: number;
+    public contryCode: number;
     public address: string;
     public currentProfession: string;
 }

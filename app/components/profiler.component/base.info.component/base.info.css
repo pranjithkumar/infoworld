@@ -1,0 +1,20 @@
+.form-group-app input[type="text"] {
+    background: transparent;
+    border: 0;
+}
+
+.form-group-app  input[type="text"]::-webkit-input-placeholder {
+   color: #FFF;
+}
+
+.form-group-app input[type="text"]:-moz-placeholder { /* Firefox 18- */
+   color: #FFF;
+}
+
+.form-group-app input[type="text"]::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFF;
+}
+
+.form-group-app input[type="text"]:-ms-input-placeholder {  
+   color: #FFF;
+}

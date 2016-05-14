@@ -70,6 +70,17 @@ export class SessionUrlHandler extends SessionHandler {
    return this.set(this.profileurl,data);
   }
   
+  public getOrCreateContent() : any {
+   if(this.has(this.profileurl)){
+     return this.getcontent();
+   }else{
+     var data = this.sampleJson();
+     data['searchUrl']=this.profileurl;
+     return this.createContent(JSON.stringify(data));
+   }
+   return false;
+  }
+  
   public updateContent(data : any) : any {
    if(!this.hasUrl()){
      return {"error":true,'type':"EXIST"};
@@ -94,7 +105,33 @@ export class SessionUrlHandler extends SessionHandler {
    return false;
   }
   
+  public hasUrlbyurl(profileurl:string) : any {
+   if(this.has(profileurl)){
+     return true;
+   }
+   return false;
+  }
   
+  private sampleJson() :any{
+    return {
+            "searchUrl": "sample",
+            "basicInfo": {
+                "profileImage": "",
+                "title": "Mr",
+                "name": "Sample Name",
+                "phoneNumber": 9715261931,
+                "contryCode": 91,
+                "address": "No. 50 second cross, kargil nagar, velrampet.",
+                "currentProfession": "Web & UI Developer"
+            },
+            "objective": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
+            "about": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
+            "knowledge": [],
+            "skill": [],
+            "exprience": [],
+            "education": []
+        };
+  }
   
   
 }

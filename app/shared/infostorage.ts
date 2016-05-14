@@ -111,6 +111,16 @@ export class SessionUrlHandler extends SessionHandler {
    return false;
   }
   
+  public getgravitor(sizeInMM: Number) : any {
+      let data = this.getcontent();
+      if(data['basicInfo'] == undefined || data['basicInfo']['email'] == undefined) {
+        return false;
+  }
+   return "http://www.gravatar.com/avatar/" + md5(data['basicInfo']['email']) + "?s="+sizeInMM+"&d=mm";
+    
+ }
+ 
+ 
   private sampleJson() :any{
     return {
             "searchUrl": "sample",
@@ -120,7 +130,8 @@ export class SessionUrlHandler extends SessionHandler {
                 "phoneNumber": 9999999999,
                 "contryCode": 91,
                 "address": "Old No:374, New No: 388, Vazhuthavur Main Road, Shanmugapuram, Puducherry, 605009",
-                "currentProfession": "Web & UI Developer"
+                "currentProfession": "Web & UI Developer",
+                "email":""
             },
             "objective": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
             "about": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",

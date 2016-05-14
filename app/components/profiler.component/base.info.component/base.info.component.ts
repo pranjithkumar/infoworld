@@ -16,6 +16,7 @@ export class BaseDetailComponent implements OnInit {
     @Input('baseInfoEdit') basicInfoEdit: boolean;
     @Input('baseInfoData') baseInfo: any;
     private basicinfoForm: ControlGroup;
+    private profileImage: string;
 
     constructor(private _routeParams: RouteParams, builder: FormBuilder, private UrlSession: SessionUrlHandler) {
         this.basicinfoForm = builder.group({
@@ -28,8 +29,10 @@ export class BaseDetailComponent implements OnInit {
     }
 
     ngOnInit() {
+        let self = this;
         console.log(this.baseInfo);
-        
+        this.profileImage = self.UrlSession.getgravitor(250);
+        console.log(self.UrlSession.getgravitor(250));
         
     }
 

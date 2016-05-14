@@ -97,9 +97,9 @@ export class SessionUrlHandler extends SessionHandler {
   
   public updateKeyContent(key:string,data:any) : any {
    if(this.has(this.profileurl)){
-     var data =  JSON.parse(this.get(this.profileurl));
-     data[key] = data;
-     this.updateContent(data);      
+     var datasource =  JSON.parse(this.get(this.profileurl));
+     datasource[key] = data;
+    return this.updateContent(datasource);      
    }
    return false;
   }

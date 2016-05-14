@@ -1,0 +1,437 @@
+.home-continer {
+    height:100vh; 
+    width:100vw; 
+    position: relative; 
+    background-color:rgba(0, 0, 0, 0.89);
+}
+
+.home-continer .info-content {
+    color: #FFEB3B; 
+    font-size: 21px; 
+    position:absolute; 
+    top:50%; 
+    left:50%; 
+    -webkit-transform: translate(-50%,-50%); 
+    transform: translate(-50%,-50%);
+}
+
+.info-content input[type="text"] {
+    border: 0;
+    background-color: transparent;
+    color: #FFEB3B;
+}
+
+.span-white {
+    color: #fff;
+}
+.span-yellow {
+    font-size: 40px;
+    color: #FFEB3B;
+}
+
+.info-content input[type="text"]:focus {
+    outline: none;
+}
+
+.info-content .info-border-bottom {
+    margin-top: 5px;
+    float: right;
+    height:3px; 
+    background-color:#F44336; 
+     /*animation: anim-down-border 1s linear forwards;
+    -webkit-animation: anim-down-border 1s linear forwards;*/
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.info-content:hover .info-border-bottom {
+    height:3px; 
+    background-color:#FFEB3B; 
+    /*animation: anim-up-border 1s linear forwards;
+    -webkit-animation: anim-up-border 1s linear forwards;*/
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.info-content .info-border-top {
+    height:3px; 
+    background-color:#F44336; 
+    /*animation: anim-up-border 1s linear forwards;
+    -webkit-animation: anim-up-border 1s linear forwards;*/
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.info-content:hover .info-border-top {
+    height:3px; 
+    background-color:#FFEB3B; 
+     /*animation: anim-down-border 1s linear forwards;
+    -webkit-animation: anim-down-border 1s linear forwards;*/
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.add-info-up {
+    animation: anim-up-border 1s linear forwards;
+    -webkit-animation: anim-up-border 1s linear forwards;
+}
+
+.add-info-down {
+    animation: anim-down-border 1s linear forwards;
+    -webkit-animation: anim-down-border 1s linear forwards;
+}
+
+.info-content:hover input[type="text"] { 
+   
+}
+
+.info-content input[type="text"]::-webkit-input-placeholder {
+   color: #FFEB3B;
+}
+
+.info-content input[type="text"]:-moz-placeholder { /* Firefox 18- */
+   color: #FFEB3B;
+}
+
+.info-content input[type="text"]::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFEB3B;
+}
+
+.info-content input[type="text"]:-ms-input-placeholder {  
+   color: #FFEB3B;
+}
+
+
+@-webkit-keyframes anim-up-border {
+    from {
+        width: 10%;
+    }
+ 
+    to {
+        width: 40%;
+    }
+}
+
+@keyframes anim-up-border {
+    from {
+        width: 10%;
+    }
+ 
+    to {
+        width: 40%;
+    }
+}
+
+@-webkit-keyframes anim-down-border {
+    from {
+        width: 40%;
+    }
+ 
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes anim-down-border {
+    from {
+        width: 40%;
+    }
+ 
+    to {
+        width: 100%;
+    }
+}
+
+.loading-progress-down {
+    height:100%;
+    float: right;
+    background-color:#4CAF50;
+     -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+     animation: anim-load-down-border 2s ease-in infinite alternate;
+    -webkit-animation: anim-load-down-border 2s ease-in infinite alternate;
+}
+
+.loading-progress-up {
+    height:100%;
+     background-color:#4CAF50;
+      -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+     animation: anim-load-up-border 2s ease-in infinite alternate;
+    -webkit-animation: anim-load-up-border 2s ease-in infinite alternate;
+}
+
+@-webkit-keyframes anim-load-down-border {
+    from {
+        width: 5%;
+    }
+ 
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes anim-load-down-border {
+    from {
+        width: 5%;
+    }
+ 
+    to {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes anim-load-up-border {
+    from {
+        width: 5%;
+    }
+ 
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes anim-load-up-border {
+    from {
+        width: 5%;
+    }
+ 
+    to {
+        width: 100%;
+    }
+}
+
+.submit-btn {
+    padding: 10px;
+    border: 0;
+    background: transparent;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.submit-btn:hover {
+    border: 0;
+    background-color: #FFEB3B;
+    color: rgba(0, 0, 0, 0.89);
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.submit-btn:focus {
+    outline: none;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.err-btn {
+    padding: 10px;
+    border: 0;
+    color:#F44336;
+    background: transparent;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.err-btn:hover {
+    border: 0;
+    background-color: #F44336;
+    color: rgba(0, 0, 0, 0.89);
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.err-btn:focus {
+    outline: none;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.error-message-hide {
+    height: 0;
+    overflow: hidden;
+    color:#F44336; 
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.error-message-show {
+    height: 30px;
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.sign-in-panel {
+    padding: 10px;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.sign-in-panel input[type="text"] ,input[type="password"] {
+    padding: 5px;
+    border: 0;
+    background-color: #FFEB3B;
+    color:#000;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.sign-in-panel input[type="text"]:focus ,input[type="password"]:focus {
+   outline: none;
+   -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.sign-in-panel input[type="text"]::-webkit-input-placeholder ,input[type="password"]::-webkit-input-placeholder {
+   color: #333;
+   -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.sign-up-panel {
+    padding: 10px;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.sign-up-panel input[type="text"] ,input[type="password"] {
+    padding: 5px;
+    border: 0;
+    background-color: #FFEB3B;
+    color:#000;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.sign-up-panel input[type="text"]:focus ,input[type="password"]:focus {
+   outline: none;
+   -webkit-transition: all 1s ease ;
+   -moz-transition: all 1s ease ;
+   transition: all 1s ease ;
+}
+
+.sign-up-panel input[type="text"]::-webkit-input-placeholder ,input[type="password"]::-webkit-input-placeholder {
+   color: #333;
+   -webkit-transition: all 1s ease ;
+   -moz-transition: all 1s ease ;
+   transition: all 1s ease ;
+}
+
+.create-url-panel {
+    padding: 10px;
+    font-size: 12px;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.create-url-panel input[type="text"] ,input[type="password"] {
+    padding: 5px;
+    border: 0;
+    background-color: #FFEB3B;
+    color:#000;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.create-url-panel input[type="text"]:focus ,input[type="password"]:focus {
+   outline: none;
+   -webkit-transition: all 1s ease ;
+   -moz-transition: all 1s ease ;
+   transition: all 1s ease ;
+}
+
+.create-url-panel input[type="text"]::-webkit-input-placeholder ,input[type="password"]::-webkit-input-placeholder {
+   color: #333;
+   -webkit-transition: all 1s ease ;
+   -moz-transition: all 1s ease ;
+   transition: all 1s ease ;
+}
+
+.close-sing-in-up-panel {
+    height: 0;
+    /*transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);*/
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+.open-sing-in-up-panel {
+    height: 110px;
+    /*transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);*/
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.open-create-form {
+    height: 130px;
+    /*transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);*/
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.close-create-form {
+    height: 0;
+    /*transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);*/
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.btn-sign-in-up-panel-open{
+    height: 37px;
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.btn-sign-in-up-panel-close{
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+form{
+    margin-bottom: 0;
+}
+
+.margin-t-5p{
+    margin-top: 5px;
+}

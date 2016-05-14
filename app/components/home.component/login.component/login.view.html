@@ -1,0 +1,13 @@
+<div>
+    <div #signInSignUpContiner [class.close-sing-in-up-panel]="!loginStatus" [class.open-sing-in-up-panel]="loginStatus">
+        <div style="font-size:18px;">WELCOME - {{displayName}}</div>
+        <div class="err-btn" style="display:inline-block; font-size:14px; margin-top:5px;"(click)="logOut(btnSignInSignUpPanel, signInSignUpContiner,signUpPanel)"><span><i class="fa fa-times" aria-hidden="true"></i> Logout</span></div>
+    </div>
+    <div>
+    </div>
+    <div #btnSignInSignUpPanel [class.btn-sign-in-up-panel-open]="!loginStatus" [class.btn-sign-in-up-panel-close]="loginStatus">
+        <div class="submit-btn" (click)="openSignUp(btnSignInSignUpPanel, signInSignUpContiner,signUpPanel, 'http://localhost:9080/auth/linkedin')"><span><i class="fa fa-linkedin" aria-hidden="true"></i>  Linked In </span></div>
+        <div class="submit-btn" (click)="openSignUp(btnSignInSignUpPanel, signInSignUpContiner,signUpPanel, 'http://localhost:9080/auth/google')"><span><i class="fa fa-google" aria-hidden="true"></i>  Google </span></div>
+    </div>
+
+</div>

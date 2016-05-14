@@ -1,0 +1,26 @@
+<div class="home-continer">
+    <div class="info-content">
+        <form *ngIf="active" #infoUrl="ngForm" (ngSubmit)="onSubmit(urlModel,upProgress,downProgress, errorElement)" novalidate>
+            <div style="display:block; overflow:hidden;">
+                <div #topElement class="info-border-top add-info-up">
+                    <div #upProgress></div>
+                </div>
+                <div>
+                    <span class="span-white">Go to the</span> <span class="span-yellow">"Info"</span> <span style="white-space: nowrap;"> <span class="span-white">http://infoworld.com/</span>
+                    <input required [(ngModel)]="urlModel.infoURL" type="text" #urlValue placeholder="Enter Your URL" (focus)="addAndRemoveAnimation(true, topElement, bottomElement, errorElement)"
+                        (blur)="addAndRemoveAnimation(false, topElement, bottomElement, errorElement)" /></span>
+                </div>
+                <div #bottomElement class="info-border-bottom add-info-down">
+                    <div #downProgress></div>
+                </div>
+            </div>
+            <div style="display:block; text-align: center; margin-top: 10px;">
+                <button type="submit" class="submit-btn">
+                <i class="fa fa-check" aria-hidden="true"></i>
+            </button>
+                <h4 #errorElement [hidden]="createFormStatus" class="error-message-hide">{{errorMessage}}</h4>
+            </div>
+        </form>
+    </div>
+
+</div>

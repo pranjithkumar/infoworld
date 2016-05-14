@@ -1,7 +1,7 @@
 <div style="background-color:#f5f5f5; padding-top:40px; padding-bottom:40px;">
     <div style="width:792px; overflow:hidden; background-color:#6098CB; margin: 0 auto; box-shadow: 5px -4px 17px -1px #ccc; color:#fff;">
         <div class="row">
-            <Basic-Info-View></Basic-Info-View>
+            <Basic-Info-View [baseInfoEdit]="editStatus" [baseInfoData]="profile.basicInfo"></Basic-Info-View>
         </div>
         <div class="row" style="background-color:#E1E1E1; padding-bottom:15px; padding-right:40px;">
             <div class="col-lg-3" style="padding-left:20px;">

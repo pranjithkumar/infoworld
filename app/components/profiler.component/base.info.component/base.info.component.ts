@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 
 @Component({
@@ -8,10 +8,13 @@ import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated
 })
 
 export class BaseDetailComponent implements OnInit {
+    @Input('baseInfoEdit') basicInfoEdit: boolean;
+    @Input('baseInfoData') baseInfo: any;
 
     constructor(private _routeParams: RouteParams) {
     }
 
     ngOnInit() {
+        
     }
 }

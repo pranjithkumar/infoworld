@@ -11,7 +11,8 @@ import {ProfilerComponent} from '../profiler.component/profiler.component';
 
 @RouteConfig([
     { path: '/', name: 'Home', component: HomeComponent, useAsDefault: true },
-    { path: '/:profileurl', name: 'Profiler', component: ProfilerComponent }
+    { path: '/:profileurl', name: 'Profiler', component: ProfilerComponent },
+    { path: '/:profileurl/:edit', name: 'ProfilerEdit', component: ProfilerComponent }
 ])
 
 export class AppComponent { }

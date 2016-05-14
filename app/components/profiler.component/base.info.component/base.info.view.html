@@ -4,12 +4,12 @@
     </div>
 </div>
 <div class="col-lg-9" style="margin-top:30px; padding-left:30px;">
-    <span style="font-size:30px; font-weight:bolder; display:block;">Mr. Nameasdasd</span>
+    <span style="font-size:30px; font-weight:bolder; display:block;" [attr.contenteditable]="basicInfoEdit" >{{baseInfo.title}}. {{baseInfo.name}}</span>
     <div style="padding-left:10px;">
-        <span style="font-size:14px; display:block;">Web & UI Developer</span>
+        <span style="font-size:14px; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.currentProfession}}</span>
         <div style="margin-top:10px;">
-            <span style="font-size:12px; display:block; margin-bottom:5px;"><span style="margin-right:5px;">No. 50 second cross, kargil nagar, velrampet.</span>            <i class="fa fa-map-marker"></i></span>
-            <span style="font-size:12px; display:block;"><span style="margin-right:5px;">9715261931</span>
+            <span style="font-size:12px; display:block; margin-bottom:5px;"><span style="margin-right:5px;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.address}}</span><i class="fa fa-map-marker"></i></span>
+            <span style="font-size:12px; display:block;"><span style="margin-right:5px;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.phoneNumber}}</span>
             <i class="fa fa-phone"></i>
             </span>
         </div>

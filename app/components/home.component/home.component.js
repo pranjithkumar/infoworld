@@ -71,10 +71,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                 };
                 HomeComponent.prototype.onSubmit = function (formData, upProgressElement, downProgressElement, errorElement) {
                     console.log("submitForm *******", formData);
-                    this.route.navigate(['Profiler', { profileurl: formData.infoURL }]);
                     if (formData.infoURL.trim()) {
                         upProgressElement.classList.add("loading-progress-up");
                         downProgressElement.classList.add("loading-progress-down");
+                        this.route.navigate(['Profiler', { profileurl: formData.infoURL }]);
                     }
                     else {
                         this.errorMessage = "Please write the url ...!";

@@ -5,7 +5,7 @@
 </div>
 <div class="col-lg-9" style="margin-top:30px; padding-left:30px;">
     <div *ngIf="!basicInfoEdit">
-        <span style="font-size:30px; font-weight:bolder; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.name}}</span>
+        <span style="font-size:30px; font-weight:bolder; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.displayname}}</span>
         <div style="padding-left:10px;">
             <span style="font-size:14px; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.currentProfession}}</span>
             <div style="margin-top:10px;">
@@ -24,9 +24,9 @@
             <div>
                 <div>
                     <div class="form-group-app">
-                        <div class="normal-border" [class.error-border]="!basicinfoForm.controls.name.valid" [class.success-border]="basicinfoForm.controls.name.valid"></div>
+                        <div class="normal-border" [class.error-border]="!basicinfoForm.controls.displayname.valid" [class.success-border]="basicinfoForm.controls.displayname.valid"></div>
                         <div class="form-input">
-                            <input #name="ngForm" [(ngModel)]="baseInfo.name" type="text" [ngFormControl]="basicinfoForm.controls['name']" required placeholder="Display Name"
+                            <input #displayname="ngForm" [(ngModel)]="baseInfo.displayname" type="text" [ngFormControl]="basicinfoForm.controls['displayname']" required placeholder="Display Name"
                             />
                         </div>
                     </div>

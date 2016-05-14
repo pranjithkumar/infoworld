@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
             downProgressElement.classList.add("loading-progress-down");
             this.route.navigate(['Profiler', { profileurl: formData.infoURL }]);
         } else {
-            this.errorMessage = "Please write the url ...!";
+            this.errorMessage = "Please Write URL";
             this.createFormStatus = false;
             if (errorElement.classList.contains("error-message-show")) {
                 errorElement.classList.remove("error-message-show");

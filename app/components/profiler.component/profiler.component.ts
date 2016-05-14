@@ -46,7 +46,9 @@ export class ProfilerComponent implements OnInit {
             var paramsValue = self._routeParams.get('edit');
             self.editStatus = (paramsValue == "edit" || paramsValue == "create") ? true : false;
         }
-
+        
+        self.workExperienceTitle = "Work Experience";
+        self.educationTitle = "Education Value";
         self.objectiveTitle = "Objective";
         self.aboutTitle = "About";
         self.knowledgeTitle = "Knowledge";

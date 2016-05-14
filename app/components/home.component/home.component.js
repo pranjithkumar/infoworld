@@ -77,7 +77,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                         this.route.navigate(['Profiler', { profileurl: formData.infoURL }]);
                     }
                     else {
-                        this.errorMessage = "Please write the url ...!";
+                        this.errorMessage = "Please Write URL";
                         this.createFormStatus = false;
                         if (errorElement.classList.contains("error-message-show")) {
                             errorElement.classList.remove("error-message-show");

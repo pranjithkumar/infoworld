@@ -6,6 +6,7 @@ import {TitleWithTextAreaComponent} from './titlewithtextarea.component/titlewit
 import {ListItemComponent} from './list.item.component/list.item.component';
 import {ListWithProgressComponent} from './listwithprogressbar.component/listwithprogressbar.component';
 import {DelayService} from '../../service/delayService';
+import {SessionUrlHandler} from '../../shared/infostorage';
 
 import CardInfo = require("cardinfo");
 import Profile = require("profileData");
@@ -14,7 +15,7 @@ import Knowledge = require("knowledge");
 @Component({
     templateUrl: '../app/components/profiler.component/profiler.view.html',
     directives: [ROUTER_DIRECTIVES, CardComponent, BaseDetailComponent, TitleWithTextAreaComponent, ListItemComponent, ListWithProgressComponent],
-    providers: [DelayService]
+    providers: [DelayService, SessionUrlHandler]
 })
 
 export class ProfilerComponent implements OnInit {
@@ -35,7 +36,7 @@ export class ProfilerComponent implements OnInit {
     private eduList: CardInfo[];
 
     constructor(private _routeParams: RouteParams,
-        private route: Router) {
+        private route: Router, private UrlSession: SessionUrlHandler) {
     }
 
     ngOnInit() {
@@ -46,77 +47,21 @@ export class ProfilerComponent implements OnInit {
             var paramsValue = self._routeParams.get('edit');
             self.editStatus = (paramsValue == "edit" || paramsValue == "create") ? true : false;
         }
-        
+
         self.workExperienceTitle = "Work Experience";
         self.educationTitle = "Education Value";
         self.objectiveTitle = "Objective";
         self.aboutTitle = "About";
         self.knowledgeTitle = "Knowledge";
         self.skillTitle = "Skill";
-
-        self.profile = {
-            "searchUrl": "sample",
-            "basicInfo": {
-                "profileImage": "",
-                "name": "Sample Name",
-                "contryCode": 91,
-                "phoneNumber": 9715261931,
-                "address": "No. 50 second cross, kargil nagar, velrampet.",
-                "currentProfession": "Web & UI Developer"
-            },
-
-            "objective": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
-            "about": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
-            "knowledge": [
-                {
-                    "title": "Knowledge you gainde",
-                    "editStatus": false
-                },
-                {
-                    "title": "Knowledge you gainde",
-                    "editStatus": false
-                },
-            ],
-            "skill": [
-                {
-                    "title": "Technologies",
-                    "percentage": 80
-                },
-                {
-                    "title": "Specialities",
-                    "percentage": 60
-                }
-            ],
-            "exprience": [
-                {
-                    "from": 2015,
-                    "to": 2016,
-                    "title": "Example Data (Profession)",
-                    "subTitle": "Company name",
-                    "editInfo": false,
-                    "addAnim": false,
-                    "removeAnim": false
-                }
-            ],
-            "education": [
-                {
-                    "from": 2015,
-                    "to": 2016,
-                    "title": "Institue Name",
-                    "subTitle": "Course or Class",
-                    "editInfo": false,
-                    "addAnim": false,
-                    "removeAnim": false
-                }
-            ]
-        };
-
+        self.UrlSession.getOrCreateContent();
+        console.log(self.UrlSession.getOrCreateContent());
+        self.profile = self.UrlSession.getOrCreateContent();
         self.knowledgeList = self.profile.knowledge;
         self.aboutMessage = self.profile.about;
         self.objectiveMessage = self.profile.objective;
         self.skillList = self.profile.skill;
         self.expList = self.profile.exprience;
         self.eduList = self.profile.education;
-        console.log(self.profile.basicInfo);
     }
 }

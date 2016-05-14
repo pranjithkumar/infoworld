@@ -117,11 +117,10 @@ export class SessionUrlHandler extends SessionHandler {
             "searchUrl": "sample",
             "basicInfo": {
                 "profileImage": "",
-                "title": "Mr",
-                "name": "Sample Name",
-                "phoneNumber": 9715261931,
+                "displayname": "Mr. Sample Name",
+                "phoneNumber": 9999999999,
                 "contryCode": 91,
-                "address": "No. 50 second cross, kargil nagar, velrampet.",
+                "address": "Old No:374, New No: 388, Vazhuthavur Main Road, Shanmugapuram, Puducherry, 605009",
                 "currentProfession": "Web & UI Developer"
             },
             "objective": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",

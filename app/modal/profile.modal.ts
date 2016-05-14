@@ -5,6 +5,18 @@ class ProfileData {
     public about: string;
     public knowledge: Knowledge[];
     public skill: Skill[];
+    public exprience: CardInfo[];
+    public education: CardInfo[];
+}
+
+class CardInfo {
+    public from: number;
+    public to: number;
+    public title: string;
+    public subTitle: string;
+    public editInfo: boolean;
+    public addAnim: boolean;
+    public removeAnim: boolean;
 }
 
 class BasicInfo {
@@ -24,6 +36,10 @@ class Knowledge {
 class Skill {
     public title: string;
     public percentage: number;
+}
+
+declare module 'cardinfo' {
+    export = CardInfo;
 }
 
 declare module 'profileData' {

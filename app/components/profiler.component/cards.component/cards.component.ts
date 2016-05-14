@@ -18,6 +18,7 @@ export class CardComponent implements OnInit {
     @Input('cardTitle') title: string;
 
     private cardEditUi: boolean = false;
+    private defaltCard: boolean = false;
     private editStatus: boolean = false;
     private cardInfo: CardInfo;
     private year = [];
@@ -29,9 +30,10 @@ export class CardComponent implements OnInit {
     }
 
     ngOnInit() {
+        var self = this;
         let id = this._routeParams.get('profileurl');
         console.log(id);
-
+        self.defaltCard = (this.cardArray.length == 0) ? true : false;
         for (var i = 1930; i <= this.today.getFullYear() + 1; i++) {
             this.year.push(i);
         }

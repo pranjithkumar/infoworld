@@ -13,6 +13,10 @@ export class SessionHandler {
     this.modal = modal;
   }
   
+  protected change_model(modal: any): void {
+    this.modal = modal;
+  }
+  
   protected set(key: string, data: any ): void {
     var modal_key = this.get_key(key);
     

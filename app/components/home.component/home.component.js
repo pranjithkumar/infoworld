@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform.model', './login.component/login.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform.model', './login.component/login.component', '../../shared/profilestorage'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, urlform_model_1, login_component_1;
+    var core_1, router_deprecated_1, urlform_model_1, login_component_1, profilestorage_1;
     var HomeComponent;
     return {
         setters:[
@@ -25,32 +25,32 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
             },
             function (login_component_1_1) {
                 login_component_1 = login_component_1_1;
+            },
+            function (profilestorage_1_1) {
+                profilestorage_1 = profilestorage_1_1;
             }],
         execute: function() {
             HomeComponent = (function () {
-                function HomeComponent(route) {
+                function HomeComponent(route, prof) {
                     this.route = route;
+                    this.prof = prof;
                     this.userLoginStatus = false;
                     this.urlModel = new urlform_model_1.UrlForm("");
                     this.active = true;
                     this.errorMessage = "";
                     this.loacationUrl = window.location.origin;
                     this.loacationUrl = window.location.origin;
-                    var words = [
-                        { text: "Ranjith", weight: 13, link: window.location.origin + '/ranjith' },
-                        { text: "Siva", weight: 10.5, link: window.location.origin + '/siva' },
-                        { text: "Santhosh", weight: 11, link: window.location.origin + '/santhosh' },
-                        { text: "Surendar", weight: 11, link: window.location.origin + '/surendar' },
-                        { text: "Rajiv", weight: 11, link: window.location.origin + '/rajiv' },
-                        { text: "Fizal", weight: 11, link: window.location.origin + '/fizal' },
-                        { text: "Prakash E", weight: 10, link: window.location.origin + '/prakashe' },
-                        { text: "Prakash R", weight: 10, link: window.location.origin + '/prakashr' },
-                        { text: "Pavithra", weight: 10, link: window.location.origin + '/pavithra' },
-                        { text: "Kiruthika", weight: 10, link: window.location.origin + '/kiruthika' },
-                        { text: "Punitha", weight: 10, link: window.location.origin + '/punitha' },
-                        { text: "Velayudhamr", weight: 10, link: window.location.origin + '/velayudhamr' },
-                        { text: "Chandru", weight: 10, link: window.location.origin + '/chandru' },
-                    ];
+                    console.log(this.prof.getProfiles());
+                    var data = this.prof.getProfiles();
+                    var words = [];
+                    data.forEach(function (element) {
+                        var objWord = {
+                            text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
+                            weight: element.visit,
+                            link: window.location.origin + '/' + element.url
+                        };
+                        words.push(objWord);
+                    });
                     $('#col1').jQCloud(words, {
                         width: 500,
                         height: 250,
@@ -115,9 +115,10 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                         selector: 'Home-View',
                         templateUrl: '../app/components/home.component/home.view.html',
                         styleUrls: ['../app/components/home.component/home.css'],
-                        directives: [router_deprecated_1.ROUTER_DIRECTIVES, login_component_1.LoginComponent],
+                        providers: [profilestorage_1.SessionProfileHandler],
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES, login_component_1.LoginComponent]
                     }), 
-                    __metadata('design:paramtypes', [router_deprecated_1.Router])
+                    __metadata('design:paramtypes', [router_deprecated_1.Router, profilestorage_1.SessionProfileHandler])
                 ], HomeComponent);
                 return HomeComponent;
             }());

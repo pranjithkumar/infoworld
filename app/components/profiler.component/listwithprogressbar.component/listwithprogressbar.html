@@ -33,5 +33,5 @@
     <div *ngIf="listItem.length == 0" class="list-empty-add" (click)="AddRangeList()">
         <i class="fa fa-plus"></i> Add
     </div>
-    <div *ngIf="cardEdit" (click)="SaveListData()" class="save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
+    <div *ngIf="cardEdit && listItem.length != 0" (click)="SaveListData()" class="save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
 </div>

@@ -80,6 +80,7 @@ export class CardComponent implements OnInit {
         var self = this;
         model.removeAnim = true;
         var array = self.cardArray;
+        self.showInfo();
         self.delayAsyn.Delay(300, function (i) {
             array.splice(index, 1);
             self.cardArray = array;
@@ -127,19 +128,19 @@ export class CardComponent implements OnInit {
     
     
     showSuccess() {
-        this.toastr.success('You are awesome!', 'Success!');
+        this.toastr.success('Your data saved!', 'Success !');
     }
 
     showError() {
-        this.toastr.error('This is not good!', 'Oops!');
+        this.toastr.error('Something went wrong!', 'Oops !');
     }
 
     showWarning() {
-        this.toastr.warning('You are being warned.', 'Alert!');
+        this.toastr.warning('You are deleted something.', 'Alert !');
     }
 
     showInfo() {
-        this.toastr.info('Just some information for you.');
+        this.toastr.info('You are deleted something.', 'Information !');
     }
     
 }

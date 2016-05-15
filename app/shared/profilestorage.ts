@@ -4,7 +4,7 @@ import {SessionHandler} from '../shared/infostorage';
 
 @Injectable()
 export class SessionProfileHandler extends SessionHandler {
-  private profiles = {};
+  private profiles = [];
   constructor(private _routeParams: RouteParams) {
     super("profile");
     let profileurl = _routeParams.get('profileurl');  
@@ -28,13 +28,23 @@ export class SessionProfileHandler extends SessionHandler {
     
   public addProfile(profileurl: string){
      if(profileurl){
-       if(this.profiles[profileurl] ==undefined){
-           this.profiles[profileurl]= {
+       let profile_filtred = this.profiles.filter(function(row) {
+         return row.url == profileurl;
+       });
+       if(!(profile_filtred && profile_filtred.length > 0)){
+           this.profiles.push({
                'url' : profileurl,
                'visit':1
-           };
+           });
        } else {
-           this.profiles[profileurl]['visit'] =this.profiles[profileurl]['visit'] +1 ;
+          this.profiles.forEach(function(row) {
+              if(row.url == profileurl){
+                row.visit++;
+              };  
+            });
+            console.log(this.profiles);
+            this.refreshProfilesSession();
+           return this.profiles;
        } 
      }
     return this.refreshProfilesSession();

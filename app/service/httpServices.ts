@@ -13,7 +13,7 @@ export class HttpServices {
 
     GetHttp() {
         var self = this;
-        return self.http.get('http://localhost:9080/').catch(self.ErrorHandler);
+        return self.http.get('http://chatji-samplefirst.rhcloud.com/samplejson').catch(self.ErrorHandler);
     }
 
     private ErrorHandler(error: Response) {

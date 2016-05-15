@@ -7,7 +7,8 @@ import {HttpServices} from '../../service/httpServices';
 @Component({
     selector: 'my-app',
     templateUrl: '../app/components/app.component/app.view.html',
-    directives: [ROUTER_DIRECTIVES, HttpServices]
+    providers: [HttpServices],
+    directives: [ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
@@ -25,7 +26,7 @@ export class AppComponent {
             .map(res => res.json())
             .subscribe(data => self.SuccessOn(data), error => self.ErrorOn(error));
     }
-    
+
     public SuccessOn(result: any) {
         console.log(result);
     }

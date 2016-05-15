@@ -19,8 +19,10 @@ export class HomeComponent implements OnInit {
     private errorMessage: string;
     private createFormStatus: boolean;
     private loacationUrl: string;
+    private words = [];
 
     constructor(private route: Router, private prof: SessionProfileHandler) {
+
         let self = this;
         this.errorMessage = "";
         this.loacationUrl = window.location.origin;
@@ -28,29 +30,33 @@ export class HomeComponent implements OnInit {
         this.loacationUrl = window.location.origin;
 
         console.log(this.prof.getProfiles());
-        
+
         let data = this.prof.getProfiles();
-        let words = [];
-        
+
         data.forEach(function (element) {
             let objWord = {
                 text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
                 weight: element.visit,
-                 handlers: {
-                    click: function() {
-                      self.route.navigate(['Profiler', { profileurl:  element.url }]);
+                handlers: {
+                    click: function () {
+                        self.route.navigate(['Profiler', { profileurl: element.url }]);
                     }
                 }
             };
-            words.push(objWord);
+            self.words.push(objWord);
         })
-        
+
         $('#col1').show();
-        $('#col1').jQCloud(words, {
-            width: 500,
-            height: 250,
-            delay: 50
-        });
+
+        if (!$('#col1').html()) {
+            $('#col1').jQCloud(this.words, {
+                width: 500,
+                height: 250
+            });
+        } else {
+            $('#col1').jQCloud('update', this.words);
+        }
+
     }
 
     ngOnInit() {
@@ -96,7 +102,7 @@ export class HomeComponent implements OnInit {
         if (formData.infoURL.trim()) {
             upProgressElement.classList.add("loading-progress-up");
             downProgressElement.classList.add("loading-progress-down");
-             $('#col1').hide();
+            $('#col1').hide();
             this.route.navigate(['Profiler', { profileurl: formData.infoURL }]);
         } else {
             this.errorMessage = "Please Write URL";

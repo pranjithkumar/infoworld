@@ -37,13 +37,13 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                     this.userLoginStatus = false;
                     this.urlModel = new urlform_model_1.UrlForm("");
                     this.active = true;
+                    this.words = [];
                     var self = this;
                     this.errorMessage = "";
                     this.loacationUrl = window.location.origin;
                     this.loacationUrl = window.location.origin;
                     console.log(this.prof.getProfiles());
                     var data = this.prof.getProfiles();
-                    var words = [];
                     data.forEach(function (element) {
                         var objWord = {
                             text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
@@ -54,14 +54,18 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                                 }
                             }
                         };
-                        words.push(objWord);
+                        self.words.push(objWord);
                     });
                     $('#col1').show();
-                    $('#col1').jQCloud(words, {
-                        width: 500,
-                        height: 250,
-                        delay: 50
-                    });
+                    if (!$('#col1').html()) {
+                        $('#col1').jQCloud(this.words, {
+                            width: 500,
+                            height: 250
+                        });
+                    }
+                    else {
+                        $('#col1').jQCloud('update', this.words);
+                    }
                 }
                 HomeComponent.prototype.ngOnInit = function () {
                     if (localStorage.getItem("userStatus")) {

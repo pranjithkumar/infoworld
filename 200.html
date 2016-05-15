@@ -1,6 +1,7 @@
-<html> 
+<html>
+
 <head>
-  <title>Profiler</title>
+  <title>Infoworld-Resume</title>
   <!-- Set the base href -->
   <base href="/">
   <meta charset="UTF-8">
@@ -11,6 +12,7 @@
   <link href='app/assert/css/app.css' rel='stylesheet' type='text/css'>
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="node_modules/ng2-toastr/bundles/ng2-toastr.min.css" rel="stylesheet" />
   <!-- 1. Load libraries -->
   <script src="node_modules/es6-shim/es6-shim.min.js"></script>
   <script src="node_modules/zone.js/dist/zone.js"></script>
@@ -22,6 +24,10 @@
   <script src="node_modules/@angular/compiler/compiler.umd.js"></script>
   <script src="node_modules/@angular/platform-browser/platform-browser.umd.js"></script>
   <script src="node_modules/@angular/platform-browser-dynamic/platform-browser-dynamic.umd.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/jqcloud-npm/dist/jqcloud.min.js"></script>
+  
+  <link rel="stylesheet" href="node_modules/jqcloud-npm/dist/jqcloud.min.css">
   <!-- Polyfill(s) for older browsers -->
   <script src="node_modules/systemjs/dist/system.src.js"></script>
   <script src="node_modules/ng2-bootstrap/bundles/ng2-bootstrap.min.js"></script>
@@ -31,6 +37,15 @@
   <script>
     System.import('app').catch(function(err){ console.error(err);  });
   </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-77765384-1', 'auto');
+  ga('send', 'pageview');
+</script>
 </head>
 <!-- 3. Display the application -->
 
@@ -42,6 +57,7 @@
       <div class="load-mouth"></div>
     </div>
   </my-app>
+  <div id="col1"></div>
 </body>
 
 </html>

@@ -321,3 +321,34 @@
             transform: translate(-50%, -50%);
   }
 }
+
+#col1 {
+    z-index: 1000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+}
+
+#col2 {
+    z-index: 1000;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#col3 {
+    z-index: 1000;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+#col4 {
+    z-index: 1000;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}

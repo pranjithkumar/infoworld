@@ -25,14 +25,11 @@ export class HomeComponent implements OnInit {
         this.loacationUrl = window.location.origin;
         var words = [
             { text: "Ranjith", weight: 13, link: window.location.origin + '/ranjith' },
-            { text: "Susi", weight: 13, link: window.location.origin + '/susi' },
-            { text: "Mani", weight: 13, link: window.location.origin + '/mani' },
-            { text: "Anand", weight: 13, link: window.location.origin + '/anand' },
             { text: "Siva", weight: 10.5, link: window.location.origin + '/siva' },
             { text: "Santhosh", weight: 11, link: window.location.origin + '/santhosh' },
             { text: "Surendar", weight: 11, link: window.location.origin + '/surendar' },
-            { text: "Rajiv", weight: 10, link: window.location.origin + '/rajiv' },
-            { text: "Fizal", weight: 10, link: window.location.origin + '/fizal' },
+            { text: "Rajiv", weight: 11, link: window.location.origin + '/rajiv' },
+            { text: "Fizal", weight: 11, link: window.location.origin + '/fizal' },
             { text: "Prakash E", weight: 10, link: window.location.origin + '/prakashe' },
             { text: "Prakash R", weight: 10, link: window.location.origin + '/prakashr' },
             { text: "Pavithra", weight: 10, link: window.location.origin + '/pavithra' },
@@ -43,7 +40,8 @@ export class HomeComponent implements OnInit {
         ];
         $('#col1').jQCloud(words, {
             width: 500,
-            height: 350
+            height: 250,
+            delay: 50
         });
     }
 

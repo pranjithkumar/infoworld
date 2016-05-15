@@ -7,7 +7,7 @@
             <div class="col-lg-3" style="padding-left:20px;">
                 <title-with-text-area [cardEdit]="editStatus" [cardMessage]="aboutMessage" [cardTitle]="aboutTitle"></title-with-text-area>
                 <title-with-text-area [cardEdit]="editStatus" [cardMessage]="objectiveMessage" [cardTitle]="objectiveTitle"></title-with-text-area>
-                <list-item [cardEdit]="editStatus" [listItem]="knowledgeList" [listTitle]="knowledgeTitle"></list-item>
+                <list-item [listEdit]="editStatus" [listItem]="knowledgeList" [listTitle]="knowledgeTitle"></list-item>
                 <list-item-with-progress [cardEdit]="editStatus" [listItem]="skillList" [listTitle]="skillTitle"></list-item-with-progress>
             </div>
             <div class="col-lg-9">
@@ -16,4 +16,9 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="btn-edit-preview" (click)="GoToEditOrPreview()">
+    <i class="fa fa-pencil" *ngIf="!editStatus" aria-hidden="true"></i>
+    <i class="fa fa-paper-plane" *ngIf="editStatus" aria-hidden="true"></i>
 </div>

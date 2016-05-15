@@ -14,6 +14,7 @@ import Knowledge = require("knowledge");
 
 @Component({
     templateUrl: '../app/components/profiler.component/profiler.view.html',
+    styleUrls: ['../app/components/profiler.component/profiler.css'],
     directives: [ROUTER_DIRECTIVES, CardComponent, BaseDetailComponent, TitleWithTextAreaComponent, ListItemComponent, ListWithProgressComponent],
     providers: [DelayService, SessionUrlHandler]
 })
@@ -63,5 +64,14 @@ export class ProfilerComponent implements OnInit {
         self.skillList = self.profile.skill;
         self.expList = self.profile.exprience;
         self.eduList = self.profile.education;
+    }
+
+    GoToEditOrPreview() {
+        let self = this;
+        if (self.editStatus) {
+            this.route.navigate(['Profiler', { profileurl: self.userUrl }]);
+        } else {
+            this.route.navigate(['ProfilerEdit', { profileurl: self.userUrl, edit: "edit" }]);
+        }
     }
 }

@@ -1,15 +1,24 @@
 <div class="row" style="padding-left:30px;">
     <h3 style="color:#6098CB; display: inline-table; text-transform: uppercase; font-size:16px; font-weight:bold; letter-spacing:1;">{{listTitle}}</h3>
-    <div *ngIf="cardEdit" (click)="AddCard()" class="add-card"><i class="fa fa-plus"></i></div>
-    <ul  *ngIf="!cardEdit" style="color:#444; text-transform: uppercase; font-size:11px; padding-left:20px;">
+    <div *ngIf="listEdit" (click)="AddItem()" class="add-card"><i class="fa fa-plus"></i></div>
+
+    <ul *ngIf="!listEdit" style="color:#444; text-transform: uppercase; font-size:11px; padding-left:20px;">
         <li *ngFor="let item of listItem" style="margin-bottom:5px;">
             {{item.title}}
         </li>
     </ul>
-    <div *ngIf="cardEdit">
-        <div *ngFor="let item of listItem">
-            <div style="display:inline-table;"></div>
-            <div style="display:inline-table;"></div>
+    <div *ngIf="listEdit">
+        <div *ngFor="let item of listItem; let i = index">
+            <div style="display:inline-table; position:relative;">
+                <input type="text" class="list-input" [class.list-input-error]="item.errorStatus" placeholder="Title" [(ngModel)]="item.title" />
+                <div class="list-close-input" (click)="DeleteList($event, i, item)">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+            </div>
         </div>
     </div>
+    <div *ngIf="listItem.length == 0" class="list-empty-add" (click)="AddItem()">
+        <i class="fa fa-plus"></i> Add
+    </div>
+    <div *ngIf="listEdit" (click)="SaveListData()" class="save-btn"><i class="fa fa-cloud" aria-hidden="true"></i></div>
 </div>

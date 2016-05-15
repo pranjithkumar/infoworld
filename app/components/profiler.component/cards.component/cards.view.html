@@ -4,7 +4,7 @@
     <div *ngIf="cardEdit" (click)="AddCard()" class="add-card"><i class="fa fa-plus"></i></div>
     <div *ngIf="cardEdit" (click)="SaveCardData()" class="save-btn"><i class="fa fa-cloud" aria-hidden="true"></i></div>
     <span *ngIf="cardEdit" [class.error-message-hide]="!errorForms" [class.error-message-show]="errorForms" style="display:inline-table;">{{errorMessage}}</span>
-    <div *ngFor="let item of cardArray" class="card-continer" [class.error-card-continer]="cardEdit && item.errorForms" [class.card-continer-add-anim]="item.addAnim" [class.card-continer-remove-anim]="item.removeAnim">
+    <div *ngFor="let item of cardArray; let i = index" class="card-continer" [class.error-card-continer]="cardEdit && item.errorForms" [class.card-continer-add-anim]="item.addAnim" [class.card-continer-remove-anim]="item.removeAnim">
         <div class="row card-inner-first-row" [class.first-box-close]="cardEdit && item.editInfo">
             <div class="col-lg-4 col-1">
                 <div class="col-content">{{item.from}} - {{item.to}}</div>

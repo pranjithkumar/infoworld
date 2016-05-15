@@ -20,3 +20,74 @@
     -moz-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+
+.save-btn{
+    font-size: 14px;
+    padding: 4px 5px;
+    background-color: #FF9800;
+    color:#000;
+    cursor: pointer;
+    display: inline-table;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+    float: right;
+}
+
+.list-input {
+    background: transparent;
+    border: 0;
+    border: 1px solid #6098CB;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    color: #000;
+     -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.list-input-error {
+    background: transparent;
+    border: 0;
+    border: 1px solid #F44336;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    color: #000;
+     -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.list-input:focus {
+    outline: 0;
+}
+
+.list-input:hover {
+    background-color: #FF9800; 
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.list-close-input {
+    position:absolute; 
+    right:-5px; 
+    top:-5px; 
+    background-color:#F44336; 
+    color: #fff;
+    font-size: 11px;
+    border-radius: 100%;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.list-empty-add {
+    width: 100%;
+    background-color: #F44336;
+    padding: 2px;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}

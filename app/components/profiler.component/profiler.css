@@ -11,3 +11,23 @@
     top: -23px;
     right: 20px;
 }
+
+.btn-edit-preview {
+    background-color:#FF9800; 
+    height:30px; 
+    width:30px; 
+    border-radius:100%; 
+    position:fixed; 
+    top:20px; 
+    right:20px; 
+    box-shadow: 0px 4px 11px -4px #000;
+}
+.btn-edit-preview i {
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+}

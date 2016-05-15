@@ -33,11 +33,13 @@ class BasicInfo {
 class Knowledge {
     public title: string;
     public editStatus: boolean;
+    public errorStatus: boolean;
 }
 
 class Skill {
     public title: string;
     public percentage: number;
+    public errorStatus: boolean;
 }
 
 declare module 'cardinfo' {

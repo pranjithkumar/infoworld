@@ -105,3 +105,17 @@
     -moz-transition: all 1s ease ;
     transition: all 1s ease ;
 }
+
+.save-btn{
+    font-size: 14px;
+    padding: 4px 5px;
+    background-color: #FF9800;
+    color:#000;
+    cursor: pointer;
+    display: inline-table;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+    float: right;
+    margin-top: 0px;
+}

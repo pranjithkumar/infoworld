@@ -5,7 +5,7 @@ import {ProfilerComponent} from '../profiler.component/profiler.component';
 
 @Component({
     selector: 'my-app',
-    templateUrl: '../app/components/app.component/app.view.html', 
+    templateUrl: '../app/components/app.component/app.view.html',
     directives: [ROUTER_DIRECTIVES]
 })
 
@@ -15,4 +15,10 @@ import {ProfilerComponent} from '../profiler.component/profiler.component';
     { path: '/:profileurl/:edit', name: 'ProfilerEdit', component: ProfilerComponent }
 ])
 
-export class AppComponent { }
+export class AppComponent {
+    private loacationUrl: string;
+
+    constructor() {
+        
+    }
+}

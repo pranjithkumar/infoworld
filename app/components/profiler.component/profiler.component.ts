@@ -38,6 +38,7 @@ export class ProfilerComponent implements OnInit {
 
     constructor(private _routeParams: RouteParams,
         private route: Router, private UrlSession: SessionUrlHandler) {
+            $('#col1').hide();
     }
 
     ngOnInit() {

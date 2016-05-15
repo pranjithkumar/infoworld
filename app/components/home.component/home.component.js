@@ -37,6 +37,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                     this.userLoginStatus = false;
                     this.urlModel = new urlform_model_1.UrlForm("");
                     this.active = true;
+                    var self = this;
                     this.errorMessage = "";
                     this.loacationUrl = window.location.origin;
                     this.loacationUrl = window.location.origin;
@@ -47,7 +48,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                         var objWord = {
                             text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
                             weight: element.visit,
-                            link: window.location.origin + '/' + element.url
+                            handlers: {
+                                click: function () {
+                                    self.route.navigate(['Profiler', { profileurl: element.url }]);
+                                }
+                            }
                         };
                         words.push(objWord);
                     });

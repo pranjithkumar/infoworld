@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     private loacationUrl: string;
 
     constructor(private route: Router, private prof: SessionProfileHandler) {
+        let self = this;
         this.errorMessage = "";
         this.loacationUrl = window.location.origin;
 
@@ -35,7 +36,11 @@ export class HomeComponent implements OnInit {
             let objWord = {
                 text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
                 weight: element.visit,
-                link: window.location.origin + '/' + element.url
+                 handlers: {
+                    click: function() {
+                      self.route.navigate(['Profiler', { profileurl:  element.url }]);
+                    }
+                }
             };
             words.push(objWord);
         })

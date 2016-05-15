@@ -7,5 +7,5 @@
         <p [attr.contenteditable]="cardEdit" [class.p-editor]="cardEdit" #message>{{cardMessage}}</p>
         <!--<textarea class="text-area" [(ngModel)]="cardMessage" #editMessage *ngIf="cardEdit"></textarea>-->
     </div>
-    <div *ngIf="cardEdit" (click)="SaveListData(message)" class="save-btn"><i class="fa fa-cloud" aria-hidden="true"></i></div>
+    <div *ngIf="cardEdit" (click)="SaveListData(message)" class="save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
 </div>

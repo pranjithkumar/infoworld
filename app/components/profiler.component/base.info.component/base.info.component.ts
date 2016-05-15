@@ -35,7 +35,11 @@ export class BaseDetailComponent implements OnInit {
         console.log(this.baseInfo);
         this.profileImage = self.UrlSession.getgravitor(250);
         console.log(self.UrlSession.getgravitor(250));
-        this.openEditPanel = true;
+        if(this.basicInfoEdit) {
+            this.openEditPanel = true;
+        } else {
+            this.openEditPanel = false;
+        }
 
     }
 

@@ -125,7 +125,10 @@
 .contact-input:focus {
     font-size: 14px;
 }*/
-
+.base-info-component .fa{
+    width: 18px;
+    text-align: center;
+}
 .address-input {
     width: 70%;
 }

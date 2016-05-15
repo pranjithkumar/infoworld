@@ -131,7 +131,7 @@ export class SessionUrlHandler extends SessionHandler {
                 "contryCode": 91,
                 "address": "Old No:374, New No: 388, Vazhuthavur Main Road, Shanmugapuram, Puducherry, 605009",
                 "currentProfession": "Web & UI Developer",
-                "email":""
+                "emailAddress":"sample@email.com"
             },
             "objective": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
             "about": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",

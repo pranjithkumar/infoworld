@@ -20,5 +20,5 @@
     <div *ngIf="listItem.length == 0" class="list-empty-add" (click)="AddItem()">
         <i class="fa fa-plus"></i> Add
     </div>
-    <div *ngIf="listEdit && listItem.length != 0" (click)="SaveListData()" class="save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
+    <div *ngIf="listEdit" (click)="SaveListData()" class="save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
 </div>

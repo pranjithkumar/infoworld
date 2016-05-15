@@ -16,9 +16,33 @@ export class HomeComponent implements OnInit {
     private active = true;
     private errorMessage: string;
     private createFormStatus: boolean;
+    private loacationUrl: string;
 
     constructor(private route: Router) {
         this.errorMessage = "";
+        this.loacationUrl = window.location.origin;
+
+        this.loacationUrl = window.location.origin;
+        var words = [
+            { text: "Ranjith", weight: 13, link: window.location.origin + '/ranjith' },
+            { text: "Siva", weight: 10.5, link: window.location.origin + '/siva' },
+            { text: "Santhosh", weight: 11, link: window.location.origin + '/santhosh' },
+            { text: "Surendar", weight: 11, link: window.location.origin + '/surendar' },
+            { text: "Rajiv", weight: 11, link: window.location.origin + '/rajiv' },
+            { text: "Fizal", weight: 11, link: window.location.origin + '/fizal' },
+            { text: "Prakash E", weight: 10, link: window.location.origin + '/prakashe' },
+            { text: "Prakash R", weight: 10, link: window.location.origin + '/prakashr' },
+            { text: "Pavithra", weight: 10, link: window.location.origin + '/pavithra' },
+            { text: "Kiruthika", weight: 10, link: window.location.origin + '/kiruthika' },
+            { text: "Punitha", weight: 10, link: window.location.origin + '/punitha' },
+            { text: "Velayudhamr", weight: 10, link: window.location.origin + '/velayudhamr' },
+            { text: "Chandru", weight: 10, link: window.location.origin + '/chandru' },
+        ];
+        $('#col1').jQCloud(words, {
+            width: 500,
+            height: 250,
+            delay: 50
+        });
     }
 
     ngOnInit() {

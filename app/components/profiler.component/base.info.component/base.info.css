@@ -1,10 +1,14 @@
-.form-group-app input[type="text"] {
+.form-group-app input[type="text"],input[type="date"] {
     background: transparent;
     border: 1px solid #000;
     margin-top: 2px;
     padding-left: 5px;
     padding-top: 2px;
 }
+
+/*.form-group-app input[type="date"] {
+    -webkit-appearance : none; 
+}*/
 
 .form-group-app  input[type="text"]::-webkit-input-placeholder {
    color: #FFF;
@@ -133,7 +137,7 @@
     opacity: 1;
     background-color: #FF9800;
     color:#000;
-    width: 80%;
+    width: 92%;
     height: 187px;
     padding-top: 10px;
     border-radius: 0 5px 5px 0;

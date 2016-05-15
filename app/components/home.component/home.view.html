@@ -6,7 +6,7 @@
                     <div #upProgress></div>
                 </div>
                 <div>
-                    <span class="span-white">Go to the</span> <span class="span-yellow">"Info"</span> <span style="white-space: nowrap;"> <span class="span-white">http://infoworld.com/</span>
+                    <span class="span-white">Go to the</span> <span class="span-yellow">"Info"</span> <span style="white-space: nowrap;"> <span class="span-white">{{loacationUrl}}/</span>
                     <input required [(ngModel)]="urlModel.infoURL" type="text" #urlValue placeholder="Enter Your URL" (focus)="addAndRemoveAnimation(true, topElement, bottomElement, errorElement)"
                         (blur)="addAndRemoveAnimation(false, topElement, bottomElement, errorElement)" /></span>
                 </div>
@@ -28,5 +28,4 @@
             </div>
         </form>
     </div>
-
 </div>

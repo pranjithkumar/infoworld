@@ -76,19 +76,19 @@ constructor(private _routeParams: RouteParams,
     }
     
     showSuccess() {
-        this.toastr.success('You are awesome!', 'Success!');
+        this.toastr.success('Your data saved!', 'Success !');
     }
 
     showError() {
-        this.toastr.error('This is not good!', 'Oops!');
+        this.toastr.error('Something went wrong!', 'Oops !');
     }
 
     showWarning() {
-        this.toastr.warning('You are being warned.', 'Alert!');
+        this.toastr.warning('You are deleted something.', 'Alert !');
     }
 
     showInfo() {
-        this.toastr.info('Just some information for you.');
+        this.toastr.info('You are deleted something.', 'Information !');
     }
     
 }

@@ -3,12 +3,13 @@ import {NgForm} from '@angular/common';
 import {RouteParams, Router} from '@angular/router-deprecated';
 import {DelayService} from '../../../service/delayService';
 import {SessionUrlHandler} from '../../../shared/infostorage';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 @Component({
     selector: 'title-with-text-area',
     templateUrl: '../app/components/profiler.component/titlewithtextarea.component/titlewithtextarea.html',
     styleUrls: ['../app/components/profiler.component/titlewithtextarea.component/titlewithtextarea.css'],
-    providers: [DelayService, SessionUrlHandler]
+    providers: [DelayService, SessionUrlHandler, ToastsManager]
 })
 export class TitleWithTextAreaComponent implements OnInit {
     @Input('cardEdit') cardEdit: boolean;
@@ -18,7 +19,7 @@ export class TitleWithTextAreaComponent implements OnInit {
     private errorForms: boolean;
     private urlSearch: string;
 
-    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler, private route: Router) {
+    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler, private route: Router, public toastr: ToastsManager) {
 
     }
 
@@ -49,7 +50,23 @@ export class TitleWithTextAreaComponent implements OnInit {
         } else if (self.title == "About") {
             key = "about"
         }
-
+        self.showSuccess();
         self.UrlSession.updateKeyContent(key, dataElement.textContent);
+    }
+    
+   showSuccess() {
+        this.toastr.success('Your data saved!', 'Success !');
+    }
+
+    showError() {
+        this.toastr.error('Something went wrong!', 'Oops !');
+    }
+
+    showWarning() {
+        this.toastr.warning('You are deleted something.', 'Alert !');
+    }
+
+    showInfo() {
+        this.toastr.info('You are deleted something.', 'Information !');
     }
 }

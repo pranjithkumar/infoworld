@@ -75,4 +75,8 @@ export class ProfilerComponent implements OnInit {
             this.route.navigate(['ProfilerEdit', { profileurl: self.userUrl, edit: "edit" }]);
         }
     }
+    GoToBack() {
+        let self = this;
+        this.route.navigate(['Home']);
+    }
 }

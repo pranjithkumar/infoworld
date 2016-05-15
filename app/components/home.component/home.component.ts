@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     private loacationUrl: string;
 
     constructor(private route: Router, private prof: SessionProfileHandler) {
+        let self = this;
         this.errorMessage = "";
         this.loacationUrl = window.location.origin;
 
@@ -35,11 +36,16 @@ export class HomeComponent implements OnInit {
             let objWord = {
                 text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
                 weight: element.visit,
-                link: window.location.origin + '/' + element.url
+                 handlers: {
+                    click: function() {
+                      self.route.navigate(['Profiler', { profileurl:  element.url }]);
+                    }
+                }
             };
             words.push(objWord);
         })
-
+        
+        $('#col1').show();
         $('#col1').jQCloud(words, {
             width: 500,
             height: 250,
@@ -90,6 +96,7 @@ export class HomeComponent implements OnInit {
         if (formData.infoURL.trim()) {
             upProgressElement.classList.add("loading-progress-up");
             downProgressElement.classList.add("loading-progress-down");
+             $('#col1').hide();
             this.route.navigate(['Profiler', { profileurl: formData.infoURL }]);
         } else {
             this.errorMessage = "Please Write URL";

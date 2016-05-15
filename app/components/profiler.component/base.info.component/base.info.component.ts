@@ -12,11 +12,12 @@ import {SessionUrlHandler} from '../../../shared/infostorage';
     providers: [SessionUrlHandler]
 })
 
-export class BaseDetailComponent implements OnInit {
+export class BaseDetailComponent implements OnInit { 
     @Input('baseInfoEdit') basicInfoEdit: boolean;
     @Input('baseInfoData') baseInfo: any;
     private basicinfoForm: ControlGroup;
     private profileImage: string;
+    private openEditPanel: boolean;
 
     constructor(private _routeParams: RouteParams, builder: FormBuilder, private UrlSession: SessionUrlHandler) {
         this.basicinfoForm = builder.group({
@@ -34,6 +35,7 @@ export class BaseDetailComponent implements OnInit {
         console.log(this.baseInfo);
         this.profileImage = self.UrlSession.getgravitor(250);
         console.log(self.UrlSession.getgravitor(250));
+        this.openEditPanel = true;
 
     }
 
@@ -41,6 +43,7 @@ export class BaseDetailComponent implements OnInit {
         let self = this;
         console.log(data.value);
         self.UrlSession.updateKeyContent("basicInfo", data.value);
+        this.openEditPanel = false;
     }
     
     emailValidator(control: Control): { [key: string]: any } {
@@ -50,5 +53,9 @@ export class BaseDetailComponent implements OnInit {
                 return { invalidEmail: true };
             }
         }
+    }
+    
+    OpenAndCloseBasicInfo(status){
+        this.openEditPanel = status;
     }
 }

@@ -1,6 +1,9 @@
 .form-group-app input[type="text"] {
     background: transparent;
-    border: 0;
+    border: 1px solid #000;
+    margin-top: 2px;
+    padding-left: 5px;
+    padding-top: 2px;
 }
 
 .form-group-app  input[type="text"]::-webkit-input-placeholder {
@@ -19,23 +22,198 @@
    color: #FFF;
 }
 
-
-/*.error-border {
+/*.error-border::before {
     width: 4px;
     background: #F44336 !important;
-    float: left;
-    height: 100%;
-    -webkit-transition: all 1s ease ;
-    -moz-transition: all 1s ease ;
-    transition: all 1s ease ;
-}
-
-.success-border {
-    width: 4px;
-    background: #4CAF50 !important;
-    float: left;
+    position: absolute;
+    top: 0;
+    content: "";
+    left: -10px;
     height: 100%;
     -webkit-transition: all 1s ease ;
     -moz-transition: all 1s ease ;
     transition: all 1s ease ;
 }*/
+.normal-border { 
+    position: relative;
+    white-space: nowrap;
+}
+/*.normal-border::before {
+    width: 4px;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    content: "";
+    height: 100%;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}*/
+/*.success-border::before {
+    width: 4px;
+    background: #4CAF50 !important;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    content: "";
+    height: 100%;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}*/
+.input-header {
+    width: auto;
+}
+.input-header.name-input {
+    font-size: 14px;
+}
+.prof-input {
+    font-size: 14px;
+}
+.contact-input, contact-input-address {
+    font-size: 14px;
+}
+.contact-input {
+    width: auto;
+}
+.country-input {
+    width: 24px;
+}
+.form-group-app .form-input i, .country-input {
+    display: inline-block;  
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.form-group-app .form-input span {
+    width: 100px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.input-header:focus {
+    outline: none;
+    display: inline-block;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    /*transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);*/
+}
+.contact-input-address, .contact-input-address:focus {
+    width: 60%;
+}
+/*.name-input:focus {
+    font-size: 32px;
+    
+}*/
+.country-input:focus {
+    width: 30px;
+}
+/*.prof-input:focus {
+    font-size: 16px;
+}
+.contact-input:focus {
+    font-size: 14px;
+}*/
+
+.address-input {
+    width: 70%;
+}
+
+.edit-panel {
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    opacity: 1;
+    background-color: #FF9800;
+    color:#000;
+    width: 80%;
+    height: 187px;
+    padding-top: 10px;
+    border-radius: 0 5px 5px 0;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.overlay-of-panel {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #FF9800;
+    color:#000;
+    width: 100%;
+    z-index: 1000;
+    height: 187px;
+    padding-top: 10px;
+    border-radius: 0 5px 5px 0;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.edit-panel-close {
+    position: absolute;
+    overflow: hidden;
+    height: 187px;
+    top: -5px;
+    left: 0px;
+    opacity: 0;
+    background-color: #FF9800;
+    color:#000;
+    width: 0;
+    padding-top: 10px;
+    border-radius: 0 5px 5px 0;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.edit-panel .overlay-of-panel {
+    opacity: 0;
+    z-index: 0;
+     -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.edit-close {
+    position: absolute;
+    bottom: -6%;
+    right: -28px;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    background-color: #F44336;
+    border-radius: 100%;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.save-btn-poup {
+    position: absolute;
+    bottom: 19%;
+    right: -28px;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    background-color: #000;
+    border-radius: 100%;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+    

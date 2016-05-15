@@ -3,6 +3,7 @@ import {NgForm} from '@angular/common';
 import {RouteParams, Router} from '@angular/router-deprecated';
 import {DelayService} from '../../../service/delayService';
 import {SessionUrlHandler} from '../../../shared/infostorage';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 import CardInfo = require("cardinfo");
 
@@ -10,7 +11,7 @@ import CardInfo = require("cardinfo");
     selector: 'card-with-title',
     templateUrl: '../app/components/profiler.component/cards.component/cards.view.html',
     styleUrls: ['../app/components/profiler.component/cards.component/cards.css'],
-    providers: [DelayService, SessionUrlHandler]
+    providers: [DelayService, SessionUrlHandler, ToastsManager]
 })
 export class CardComponent implements OnInit {
     @Input('cardEdit') cardEdit: boolean;
@@ -28,7 +29,7 @@ export class CardComponent implements OnInit {
     private errorForms: boolean;
     private errorMessage: string;
 
-    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler, private route: Router) {
+    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler, private route: Router, public toastr: ToastsManager) {
 
     }
 
@@ -109,6 +110,7 @@ export class CardComponent implements OnInit {
         }
 
         if (self.errorForms) {
+            self.showError();
             let filterNonErrorForms = self.cardArray.filter(function (element) {
                 return !element.errorForms;
             });
@@ -117,8 +119,27 @@ export class CardComponent implements OnInit {
             return;
         }
 
+        self.showSuccess();
         console.log(self.cardArray);
         self.UrlSession.updateKeyContent(key, self.cardArray);
         console.log(self.cardArray);
     }
+    
+    
+    showSuccess() {
+        this.toastr.success('You are awesome!', 'Success!');
+    }
+
+    showError() {
+        this.toastr.error('This is not good!', 'Oops!');
+    }
+
+    showWarning() {
+        this.toastr.warning('You are being warned.', 'Alert!');
+    }
+
+    showInfo() {
+        this.toastr.info('Just some information for you.');
+    }
+    
 }

@@ -3,6 +3,7 @@ import { FORM_DIRECTIVES, NgControlGroup, Control, FormBuilder, ControlGroup, Va
 import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 import {SessionUrlHandler} from '../../../shared/infostorage';
 import {DateToAgePipe} from '../../../pipes/datetoage.pipe';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {DateToAgePipe} from '../../../pipes/datetoage.pipe';
     templateUrl: '../app/components/profiler.component/base.info.component/base.info.view.html',
     styleUrls: ['../app/components/profiler.component/base.info.component/base.info.css', "../app/components/profiler.component/profiler.css"],
     directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
-    providers: [SessionUrlHandler],
+    providers: [SessionUrlHandler, ToastsManager],
     pipes: [DateToAgePipe]
 })
 
@@ -21,7 +22,7 @@ export class BaseDetailComponent implements OnInit {
     private profileImage: string;
     private openEditPanel: boolean;
 
-    constructor(private _routeParams: RouteParams, builder: FormBuilder, private UrlSession: SessionUrlHandler) {
+    constructor(private _routeParams: RouteParams, builder: FormBuilder, private UrlSession: SessionUrlHandler, public toastr: ToastsManager) {
         this.basicinfoForm = builder.group({
             displayname: ["", Validators.required],
             currentProfession: ["", Validators.required],
@@ -50,6 +51,7 @@ export class BaseDetailComponent implements OnInit {
         let self = this;
         console.log(data.value);
         self.UrlSession.updateKeyContent("basicInfo", data.value);
+        self.showSuccess();
         this.openEditPanel = false;
     }
     
@@ -65,4 +67,21 @@ export class BaseDetailComponent implements OnInit {
     OpenAndCloseBasicInfo(status){
         this.openEditPanel = status;
     }
+    
+    showSuccess() {
+        this.toastr.success('You are awesome!', 'Success!');
+    }
+
+    showError() {
+        this.toastr.error('This is not good!', 'Oops!');
+    }
+
+    showWarning() {
+        this.toastr.warning('You are being warned.', 'Alert!');
+    }
+
+    showInfo() {
+        this.toastr.info('Just some information for you.');
+    }
+    
 }

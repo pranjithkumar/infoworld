@@ -2,15 +2,21 @@ import {Component, Input, OnInit} from '@angular/core';
 import { FORM_DIRECTIVES, NgControlGroup, Control, FormBuilder, ControlGroup, Validators, AbstractControl  } from '@angular/common';
 import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 import {SessionUrlHandler} from '../../../shared/infostorage';
+import {SessionProfileHandler} from '../../../shared/profilestorage';
+import {DateToAgePipe} from '../../../pipes/datetoage.pipe';
+import {ToastsManager} from 'ng2-toastr/ng2-toastr';
 
 
 @Component({
     selector: 'Basic-Info-View',
     templateUrl: '../app/components/profiler.component/base.info.component/base.info.view.html',
     styleUrls: ['../app/components/profiler.component/base.info.component/base.info.css', "../app/components/profiler.component/profiler.css"],
+
     directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
-    providers: [SessionUrlHandler]
+    providers: [SessionUrlHandler, SessionProfileHandler, ToastsManager],
+    pipes: [DateToAgePipe]
 })
+
 
 export class BaseDetailComponent implements OnInit { 
     @Input('baseInfoEdit') basicInfoEdit: boolean;
@@ -19,7 +25,11 @@ export class BaseDetailComponent implements OnInit {
     private profileImage: string;
     private openEditPanel: boolean;
 
-    constructor(private _routeParams: RouteParams, builder: FormBuilder, private UrlSession: SessionUrlHandler) {
+constructor(private _routeParams: RouteParams,                 
+                 private UrlSession: SessionUrlHandler,
+                 private prof:SessionProfileHandler,
+                 public toastr: ToastsManager,
+                 builder: FormBuilder) { 
         this.basicinfoForm = builder.group({
             displayname: ["", Validators.required],
             currentProfession: ["", Validators.required],
@@ -27,6 +37,7 @@ export class BaseDetailComponent implements OnInit {
             contryCode: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
             phoneNumber: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
             emailAddress: ["", Validators.compose([Validators.required, this.emailValidator])],
+            dob: ["", Validators.required],
         });
     }
 
@@ -35,7 +46,11 @@ export class BaseDetailComponent implements OnInit {
         console.log(this.baseInfo);
         this.profileImage = self.UrlSession.getgravitor(250);
         console.log(self.UrlSession.getgravitor(250));
-        this.openEditPanel = true;
+        if(this.basicInfoEdit) {
+            this.openEditPanel = true;
+        } else {
+            this.openEditPanel = false;
+        }
 
     }
 
@@ -43,6 +58,7 @@ export class BaseDetailComponent implements OnInit {
         let self = this;
         console.log(data.value);
         self.UrlSession.updateKeyContent("basicInfo", data.value);
+        self.showSuccess();
         this.openEditPanel = false;
     }
     
@@ -58,4 +74,21 @@ export class BaseDetailComponent implements OnInit {
     OpenAndCloseBasicInfo(status){
         this.openEditPanel = status;
     }
+    
+    showSuccess() {
+        this.toastr.success('Your data saved!', 'Success !');
+    }
+
+    showError() {
+        this.toastr.error('Something went wrong!', 'Oops !');
+    }
+
+    showWarning() {
+        this.toastr.warning('You are deleted something.', 'Alert !');
+    }
+
+    showInfo() {
+        this.toastr.info('You are deleted something.', 'Information !');
+    }
+    
 }

@@ -28,6 +28,7 @@ class BasicInfo {
     public contryCode: number;
     public address: string;
     public currentProfession: string;
+    public dob: string;
 }
 
 class Knowledge {

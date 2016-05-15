@@ -1,15 +1,15 @@
 <div class="row" style="padding-left:21px;">
 
-    <h3 style="color:#6098CB; text-transform: uppercase; font-size:16px; font-weight:bold; letter-spacing:1; display:inline-table;">{{title}}</h3>
+    <h3 style="color:#6098CB; font-size:16px; font-weight:bold; letter-spacing:1; display:inline-table;">{{ title | uppercase}}</h3>
     <div *ngIf="cardEdit" (click)="AddCard()" class="add-card"><i class="fa fa-plus"></i></div>
-    <div *ngIf="cardEdit" (click)="SaveCardData()" class="save-btn"><i class="fa fa-cloud" aria-hidden="true"></i></div>
+    <div *ngIf="cardEdit" (click)="SaveCardData()" class="save-btn"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
     <span *ngIf="cardEdit" [class.error-message-hide]="!errorForms" [class.error-message-show]="errorForms" style="display:inline-table;">{{errorMessage}}</span>
     <div *ngFor="let item of cardArray; let i = index" class="card-continer" [class.error-card-continer]="cardEdit && item.errorForms" [class.card-continer-add-anim]="item.addAnim" [class.card-continer-remove-anim]="item.removeAnim">
         <div class="row card-inner-first-row" [class.first-box-close]="cardEdit && item.editInfo">
-            <div class="col-lg-4 col-1">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-1">
                 <div class="col-content">{{item.from}} - {{item.to}}</div>
             </div>
-            <div class="col-lg-8" style="height:80px; position:relative;">
+            <div class="col-sm-8 col-md-8 col-lg-8" style="height:80px; position:relative;">
                 <div *ngIf="cardEdit" class="edit-card" (click)="OpenEdit($event, item, true)"><i class="fa fa-pencil" aria-hidden="true"></i></div>
                 <div *ngIf="cardEdit" class="delete-card" (click)="DeleteCard($event, i, item)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                 <div style="width: 100%; padding: 15px;">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div *ngIf="cardEdit" class="row card-inner-second-row" [class.second-box-open]="cardEdit && item.editInfo">
-            <div class="col-lg-4 edit-col1">
+            <div class="col-sm-4 col-md-4 col-lg-4 edit-col1">
                 <div class="col-content" style="width:100%; color:000;">
                     <select #cardFrom required [(ngModel)]="item.from" style="display:inline-table; padding:3px 5px; font-size:12px; border: 1px solid #ccc;">
                     <option value="0" selected>From</option>
@@ -31,7 +31,7 @@
                    </select>
                 </div>
             </div>
-            <div class="col-lg-8 edit-col2" style="height:80px; position:relative;">
+            <div class="col-sm-8 col-md-8 col-lg-8 edit-col2" style="height:80px; position:relative;">
                 <div *ngIf="cardEdit" class="close-card" (click)="OpenEdit($event, item, false)"><i class="fa fa-times" aria-hidden="true"></i></div>
                 <div *ngIf="cardEdit" class="delete-card" (click)="DeleteCard($event, i, item)"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                 <div style="width: 100%; padding: 15px;">

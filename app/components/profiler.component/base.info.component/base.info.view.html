@@ -1,23 +1,26 @@
-<div class="col-lg-3" style="padding:0;">
+<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding:0;">
     <div style="height:200px; background-color:#fff; box-shadow: 0px 0px 21px 0px #666; overflow:hidden;">
         <img [attr.src]="profileImage" style="width: 100%;" />
     </div>
 </div>
-<div class="col-lg-9" style="margin-top:11px; padding-left:30px;">
+<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 base-info-component" style="margin-top:11px; padding-left:30px;">
     <div [hidden]="openEditPanel">
-        <span style="font-size:30px; font-weight:bolder; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.displayname}}</span>
+        <span style="font-size:30px; font-weight:bolder; display:block;">{{baseInfo.displayname}}</span>
         <div style="padding-left:10px;">
-            <span style="font-size:14px; display:block;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.currentProfession}}</span>
+            <span style="font-size:14px; display:block;">{{baseInfo.currentProfession}}</span>
             <div style="margin-top:10px;">
-                <span style="font-size:12px; display:block; margin-bottom:5px;"><i class="fa fa-envelope" aria-hidden="true"></i>
-<span style="margin-left:5px;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.emailAddress}}</span>
+                <span style="font-size:12px; display:block; margin-bottom:5px;"><i class="fa fa-envelope" aria-hidden="true"></i><span style="margin-left:5px;">{{baseInfo.emailAddress}}</span>
+                </span>
+                <span style="font-size:12px; display:block; margin-bottom:5px;"><i class="fa fa-map-marker"></i><span style="margin-left:5px;">{{baseInfo.address}}</span>
 
                 </span>
-                <span style="font-size:12px; display:block; margin-bottom:5px;"><i class="fa fa-map-marker"></i><span style="margin-left:5px;" [attr.contenteditable]="basicInfoEdit">{{baseInfo.address}}</span>
+                <span style="font-size:12px; display:block;"><i class="fa fa-phone"></i><span style="margin-left:5px;">+{{baseInfo.contryCode}} {{baseInfo.phoneNumber}}</span>
 
                 </span>
-                <span style="font-size:12px; display:block;"><i class="fa fa-phone"></i><span style="margin-left:5px;" [attr.contenteditable]="basicInfoEdit">+{{baseInfo.contryCode}} {{baseInfo.phoneNumber}}</span>
 
+                <span *ngIf="baseInfo.dob" style="font-size:12px; display:block; margin-bottom:5px;">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    <span style="margin-left:5px;">{{ baseInfo.dob | dateToAge }}</span>
                 </span>
             </div>
         </div>
@@ -80,6 +83,16 @@
                                 required placeholder="phoneNumber" />
                         </div>
                     </div>
+                    
+                    <div class="form-group-app">
+                        <div class="form-input normal-border" [class.error-border]="!basicinfoForm.controls.dob.valid"
+                            [class.success-border]="basicinfoForm.controls.dob.valid">
+                            <span>Dob </span> : <input type="date" #dob="ngForm" class="input-header contact-input" [(ngModel)]="baseInfo.dob" [ngFormControl]="basicinfoForm.controls['dob']"
+                                required/>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </form>

@@ -7,10 +7,13 @@ export class SessionHandler {
   public modal ;
   
   constructor(modal: any){
-    console.log();
-    if(modal) {
+    if(!modal) {
       modal = 'common';
     }
+    this.modal = modal;
+  }
+  
+  protected change_model(modal: any): void {
     this.modal = modal;
   }
   
@@ -131,7 +134,8 @@ export class SessionUrlHandler extends SessionHandler {
                 "contryCode": 91,
                 "address": "Old No:374, New No: 388, Vazhuthavur Main Road, Shanmugapuram, Puducherry, 605009",
                 "currentProfession": "Web & UI Developer",
-                "emailAddress":"sample@email.com"
+                "emailAddress":"sample@email.com",
+                "dob":"1990/02/21"
             },
             "objective": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",
             "about": "These samples of resumes and cover letters are intended purely as a guide to what is possible. Do not simply try to copy them for your own resume, because your resume should be unique (like you!).",

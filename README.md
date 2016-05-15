@@ -1,48 +1,49 @@
-# This is your [AngularAttack](https://www.angularattack.com) 2016 Repo
+# angularattack2016-infoworld
 
-This repo is the start of your AngularAttack 2016 entry. It contains the simple [Angular2 starter](https://angular.io/docs/ts/latest/quickstart.html) files.
+In today’s world, with advancements and exposure to technologies, we learn many things. But keeping
 
-**DO NOT MAKE ANY CODE CHECKINS TO THIS REPOSITORY BEFORE THE COMPETITION OFFICIALLY BEGINS.**
+your curriculum vitae / resume up to date is still a question mark, because you have to go search where
 
-**DOING SO COULD DISQUALIFY YOU.**
+in your local machine and then update and then upload. Here is a one stop solution we provide you to
 
-
-However, before the competition starts, there are some things we encourage you to do to get prepared for the competition.
-
-
-### Step 1) Get Your Local Environment setup
-
-Clone this repo locally, and make sure all your team members have access to it.
-
-* Install the latest [Node / NPM](https://nodejs.org).
-
-* `git clone git@github.com:rumblex/angularattack2016-infoworld.git`
-
-* `cd angularattack2016-infoworld`
-
-* `npm install`
-
-* `npm start` will start the server locally to test that everything is running correctly
+update your resume online and that too with a single url https://infoworld.2016.angularattack.io/
 
 
-### Step 2) Deploy Your App
+https://infoworld.2016.angularattack.io/ is a website in which you will be able to update your profile
 
-While you can't make any checkins before the comp, what you **can** do right now is deploy this sample app to [Surge](https://surge.sh) (our competition hosting provider).
+with the following details
 
-* `npm install -g surge`
+### Image: 
+An image of the profile user that is automatically fetched from the website gravatar. (This makes
 
-* `surge .`
+your job easy, no more searching for profile picture and uploading it)
 
-Note: please do not remove the `CNAME` file, as that tells it where to deploy to.
+Name, Address and Email id and phone number of the user.
 
-If you receive an error message `"You do not have permission to publish to infoworld.2016.angularattack.io"`, it might mean another team member has already deployed your project to Surge. Ask them to run the next step to give you access.
+### About: 
+A short description about the profile user.
 
-### Step 3) Add Your Team Members to Surge
+Objective: A text area to describe for what objective the user of the profile is applying for an
 
-* `surge . --add pranjithkumar86@gmail.com,mrsanthoshkumark@gmail.com,sivakavi63@gmail.com,surendar28111989@gmail.com`
+opportunity.
 
+### Hobbies: 
+This contains the hobbies and personal interests of the profile user
 
-### Step 4) Wait til competition starts
+### Skills: 
+Here is where the user can add their skill sets
 
-It begins at exactly [May 14 at 00:00 UTC](https://www.wolframalpha.com/input/?i=May+14,+2016+0:00+UTC). Once the competition starts,   you can write over this project.
+Educational Qualification: This is a field for the user to type in their qualification and their course
 
+duration.
+
+### Work Experience: 
+The user can add their work experiences with a short description on that.
+
+All the fields above can be edited anytime, by just clicking on the Edit icon that will be found at the top
+
+right corner of the page. An easy interface for the user to remove /add any if the Hobbies, Skills ,
+
+qualification and Work experiences in the edit mode. There shall also be an option for the user to print
+
+this anytime they want.

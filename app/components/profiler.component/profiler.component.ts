@@ -38,6 +38,7 @@ export class ProfilerComponent implements OnInit {
 
     constructor(private _routeParams: RouteParams,
         private route: Router, private UrlSession: SessionUrlHandler) {
+            $('#col1').hide();
     }
 
     ngOnInit() {
@@ -53,8 +54,8 @@ export class ProfilerComponent implements OnInit {
         self.educationTitle = "Education Value";
         self.objectiveTitle = "Objective";
         self.aboutTitle = "About";
-        self.knowledgeTitle = "Knowledge";
-        self.skillTitle = "Skill";
+        self.knowledgeTitle = "Hobbies";
+        self.skillTitle = "Skills";
         self.UrlSession.getOrCreateContent();
         console.log(self.UrlSession.getOrCreateContent());
         self.profile = self.UrlSession.getOrCreateContent();

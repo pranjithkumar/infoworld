@@ -4,15 +4,15 @@
             <Basic-Info-View [baseInfoEdit]="editStatus" [baseInfoData]="profile.basicInfo"></Basic-Info-View>
         </div>
         <div class="row" style="background-color:#E1E1E1; padding-bottom:15px; padding-right:40px;">
-            <div class="col-lg-3" style="padding-left:20px;">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="padding-left:20px;">
                 <title-with-text-area [cardEdit]="editStatus" [cardMessage]="aboutMessage" [cardTitle]="aboutTitle"></title-with-text-area>
                 <title-with-text-area [cardEdit]="editStatus" [cardMessage]="objectiveMessage" [cardTitle]="objectiveTitle"></title-with-text-area>
                 <list-item [listEdit]="editStatus" [listItem]="knowledgeList" [listTitle]="knowledgeTitle"></list-item>
                 <list-item-with-progress [cardEdit]="editStatus" [listItem]="skillList" [listTitle]="skillTitle"></list-item-with-progress>
             </div>
-            <div class="col-lg-9">
-                <card-with-title [cardEdit]="editStatus" [cardArray]="expList" [cardTitle]="workExperienceTitle"></card-with-title>
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                 <card-with-title [cardEdit]="editStatus" [cardArray]="eduList" [cardTitle]="educationTitle"></card-with-title>
+                <card-with-title [cardEdit]="editStatus" [cardArray]="expList" [cardTitle]="workExperienceTitle"></card-with-title>
             </div>
         </div>
     </div>

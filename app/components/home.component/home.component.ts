@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 import {UrlForm}    from './modal/urlform.model';
 import {LoginComponent} from './login.component/login.component';
+import {SessionProfileHandler} from '../../shared/profilestorage';
 
 @Component({
     selector: 'Home-View',
     templateUrl: '../app/components/home.component/home.view.html',
     styleUrls: ['../app/components/home.component/home.css'],
-    directives: [ROUTER_DIRECTIVES, LoginComponent],
+    providers: [SessionProfileHandler],
+    directives: [ROUTER_DIRECTIVES, LoginComponent]
 })
 
 export class HomeComponent implements OnInit {
@@ -16,9 +18,33 @@ export class HomeComponent implements OnInit {
     private active = true;
     private errorMessage: string;
     private createFormStatus: boolean;
+    private loacationUrl: string;
 
-    constructor(private route: Router) {
+    constructor(private route: Router, private prof: SessionProfileHandler) {
         this.errorMessage = "";
+        this.loacationUrl = window.location.origin;
+
+        this.loacationUrl = window.location.origin;
+
+        console.log(this.prof.getProfiles());
+        
+        let data = this.prof.getProfiles();
+        let words = [];
+        
+        data.forEach(function (element) {
+            let objWord = {
+                text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
+                weight: element.visit,
+                link: window.location.origin + '/' + element.url
+            };
+            words.push(objWord);
+        })
+
+        $('#col1').jQCloud(words, {
+            width: 500,
+            height: 250,
+            delay: 50
+        });
     }
 
     ngOnInit() {

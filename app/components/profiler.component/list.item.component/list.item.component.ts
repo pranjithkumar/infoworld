@@ -62,7 +62,7 @@ export class ListItemComponent implements OnInit {
 
 
         let key = "";
-        if (self.listTitle == "Knowledge") {
+        if (self.listTitle == "Hobbies") {
             key = "knowledge"
         }
         

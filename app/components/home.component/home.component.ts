@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {RouteConfig, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 import {UrlForm}    from './modal/urlform.model';
 import {LoginComponent} from './login.component/login.component';
+import {SessionProfileHandler} from '../../shared/profilestorage';
 
 @Component({
     selector: 'Home-View',
     templateUrl: '../app/components/home.component/home.view.html',
     styleUrls: ['../app/components/home.component/home.css'],
-    directives: [ROUTER_DIRECTIVES, LoginComponent],
+    providers: [SessionProfileHandler],
+    directives: [ROUTER_DIRECTIVES, LoginComponent]
 })
 
 export class HomeComponent implements OnInit {
@@ -18,26 +20,26 @@ export class HomeComponent implements OnInit {
     private createFormStatus: boolean;
     private loacationUrl: string;
 
-    constructor(private route: Router) {
+    constructor(private route: Router, private prof: SessionProfileHandler) {
         this.errorMessage = "";
         this.loacationUrl = window.location.origin;
 
         this.loacationUrl = window.location.origin;
-        var words = [
-            { text: "Ranjith", weight: 13, link: window.location.origin + '/ranjith' },
-            { text: "Siva", weight: 10.5, link: window.location.origin + '/siva' },
-            { text: "Santhosh", weight: 11, link: window.location.origin + '/santhosh' },
-            { text: "Surendar", weight: 11, link: window.location.origin + '/surendar' },
-            { text: "Rajiv", weight: 11, link: window.location.origin + '/rajiv' },
-            { text: "Fizal", weight: 11, link: window.location.origin + '/fizal' },
-            { text: "Prakash E", weight: 10, link: window.location.origin + '/prakashe' },
-            { text: "Prakash R", weight: 10, link: window.location.origin + '/prakashr' },
-            { text: "Pavithra", weight: 10, link: window.location.origin + '/pavithra' },
-            { text: "Kiruthika", weight: 10, link: window.location.origin + '/kiruthika' },
-            { text: "Punitha", weight: 10, link: window.location.origin + '/punitha' },
-            { text: "Velayudhamr", weight: 10, link: window.location.origin + '/velayudhamr' },
-            { text: "Chandru", weight: 10, link: window.location.origin + '/chandru' },
-        ];
+
+        console.log(this.prof.getProfiles());
+        
+        let data = this.prof.getProfiles();
+        let words = [];
+        
+        data.forEach(function (element) {
+            let objWord = {
+                text: element.url.charAt(0).toUpperCase() + element.url.slice(1),
+                weight: element.visit,
+                link: window.location.origin + '/' + element.url
+            };
+            words.push(objWord);
+        })
+
         $('#col1').jQCloud(words, {
             width: 500,
             height: 250,

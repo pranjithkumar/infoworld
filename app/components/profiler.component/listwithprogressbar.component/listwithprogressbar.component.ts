@@ -61,7 +61,7 @@ export class ListWithProgressComponent implements OnInit {
 
 
         let key = "";
-        if (self.listTitle == "Skill") {
+        if (self.listTitle == "Skills") {
             key = "skill"
         }
 

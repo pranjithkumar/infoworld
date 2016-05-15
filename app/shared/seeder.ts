@@ -32,7 +32,11 @@ export class SeederUrlHandler extends SessionHandler {
     this.insert_profile(data.searchUrl,data.setting.visit);
     
     this.change_model("url");
-    return this.set(data.searchUrl,data_string);
+    let temp_data = this.get(data.searchUrl);
+    console.log(temp_data);
+    if(!temp_data){
+        return this.set(data.searchUrl,data_string);
+    }
   }
   
   public getProfiles(){
@@ -46,6 +50,7 @@ export class SeederUrlHandler extends SessionHandler {
   
   public insert_profile(profileurl,visit){
      this.change_model("profile"); 
+     this.getProfiles();
      if(profileurl){
                   
         let profile_filtred = this.profiles.filter(function(row) {

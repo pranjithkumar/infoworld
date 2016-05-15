@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { FORM_DIRECTIVES, NgControlGroup, Control, FormBuilder, ControlGroup, Validators, AbstractControl  } from '@angular/common';
 import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 import {SessionUrlHandler} from '../../../shared/infostorage';
+import {DateToAgePipe} from '../../../pipes/datetoage.pipe';
 
 
 @Component({
@@ -9,7 +10,8 @@ import {SessionUrlHandler} from '../../../shared/infostorage';
     templateUrl: '../app/components/profiler.component/base.info.component/base.info.view.html',
     styleUrls: ['../app/components/profiler.component/base.info.component/base.info.css', "../app/components/profiler.component/profiler.css"],
     directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
-    providers: [SessionUrlHandler]
+    providers: [SessionUrlHandler],
+    pipes: [DateToAgePipe]
 })
 
 export class BaseDetailComponent implements OnInit { 
@@ -27,6 +29,7 @@ export class BaseDetailComponent implements OnInit {
             contryCode: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
             phoneNumber: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
             emailAddress: ["", Validators.compose([Validators.required, this.emailValidator])],
+            dob: ["", Validators.required],
         });
     }
 
@@ -35,7 +38,11 @@ export class BaseDetailComponent implements OnInit {
         console.log(this.baseInfo);
         this.profileImage = self.UrlSession.getgravitor(250);
         console.log(self.UrlSession.getgravitor(250));
-        this.openEditPanel = true;
+        if(this.basicInfoEdit) {
+            this.openEditPanel = true;
+        } else {
+            this.openEditPanel = false;
+        }
 
     }
 

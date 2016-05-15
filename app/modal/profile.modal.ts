@@ -17,6 +17,7 @@ class CardInfo {
     public editInfo: boolean;
     public addAnim: boolean;
     public removeAnim: boolean;
+    public errorForms: boolean;
 }
 
 class BasicInfo {

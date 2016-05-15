@@ -11,6 +11,20 @@
     transition: all 1s ease ;
 }
 
+.error-card-continer {
+    position: relative;
+    border: 2px solid #F44336;
+    background-color:#fff; 
+    box-shadow: 1px 1px 1px 1px #ccc; 
+    overflow: hidden; 
+    height: 80px; 
+    color:#444; 
+    margin-bottom:10px;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
 .card-continer-add-anim {
     animation: card-init .3s linear forwards;
     -webkit-animation: card-init .3s linear forwards;
@@ -276,7 +290,7 @@
     font-size: 14px;
     padding: 4px 5px;
     background-color: #FF9800;
-    color:#fff;
+    color:#000;
     cursor: pointer;
     display: inline-table;
     -webkit-transition: all 1s ease ;
@@ -288,4 +302,28 @@
     position: absolute;
     top: -23px;
     right: 20px;
+}
+
+.error-message-hide {
+    position:relative;
+    height: 0;
+    overflow: hidden;
+    font-weight: bold;
+    color:#F44336; 
+    display: inline-table;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.error-message-show {
+    position:relative;
+    height: 30;
+    overflow: hidden;
+    color:#F44336; 
+    font-weight: bold;
+    display: inline-table;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
 }

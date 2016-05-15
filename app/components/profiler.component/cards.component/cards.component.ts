@@ -26,6 +26,7 @@ export class CardComponent implements OnInit {
     private editOpen: boolean = false;
     private today: Date = new Date();
     private errorForms: boolean;
+    private errorMessage: string;
 
     constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler, private route: Router) {
 
@@ -46,7 +47,7 @@ export class CardComponent implements OnInit {
             this.route.navigate(['ProfilerEdit', { profileurl: this.urlSearch, edit: "edit" }]);
             return;
         }
-        
+
         if (this.cardArray.length > 0) {
             this.cardArray[0].addAnim = false;
         }
@@ -62,7 +63,8 @@ export class CardComponent implements OnInit {
             subTitle: "",
             editInfo: true,
             addAnim: true,
-            removeAnim: false
+            removeAnim: false,
+            errorForms: false
         }
 
         this.cardArray.unshift(card);
@@ -84,15 +86,39 @@ export class CardComponent implements OnInit {
     }
 
     public SaveCardData(model) {
+        let self = this;
+
+        self.errorForms = false;
+        self.errorMessage = "";
+
+        self.cardArray.forEach(function (element) {
+            if (element.from == 0 || element.to == 0 || !element.title.trim() || !element.subTitle.trim()) {
+                self.errorForms = true;
+                element.errorForms = true;
+                self.errorMessage = "Please fill the error forms.";
+            } else {
+                element.errorForms = false;
+            }
+        });
+
         let key = "";
-        if (this.title == "Work Experience") {
+        if (self.title == "Work Experience") {
             key = "exprience"
-        } else if (this.title == "Education Value") {
+        } else if (self.title == "Education Value") {
             key = "education"
         }
-        let self = this;
-        console.log(this.cardArray);
-        self.UrlSession.updateKeyContent(key, this.cardArray);
-        console.log(this.cardArray);
+
+        if (self.errorForms) {
+            let filterNonErrorForms = self.cardArray.filter(function (element) {
+                return !element.errorForms;
+            });
+            console.log("error*****()()***", filterNonErrorForms);
+            self.UrlSession.updateKeyContent(key, filterNonErrorForms);
+            return;
+        }
+
+        console.log(self.cardArray);
+        self.UrlSession.updateKeyContent(key, self.cardArray);
+        console.log(self.cardArray);
     }
 }

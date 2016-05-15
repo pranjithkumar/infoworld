@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { FORM_DIRECTIVES, NgControlGroup, Control, FormBuilder, ControlGroup, Validators, AbstractControl  } from '@angular/common';
 import {RouteParams, ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated';
 import {SessionUrlHandler} from '../../../shared/infostorage';
+import {SessionProfileHandler} from '../../../shared/profilestorage';
 
 
 @Component({
@@ -9,8 +10,9 @@ import {SessionUrlHandler} from '../../../shared/infostorage';
     templateUrl: '../app/components/profiler.component/base.info.component/base.info.view.html',
     styleUrls: ['../app/components/profiler.component/base.info.component/base.info.css', "../app/components/profiler.component/profiler.css"],
     directives: [ROUTER_DIRECTIVES, FORM_DIRECTIVES],
-    providers: [SessionUrlHandler]
+    providers: [SessionUrlHandler,SessionProfileHandler]
 })
+
 
 export class BaseDetailComponent implements OnInit { 
     @Input('baseInfoEdit') basicInfoEdit: boolean;
@@ -19,7 +21,11 @@ export class BaseDetailComponent implements OnInit {
     private profileImage: string;
     private openEditPanel: boolean;
 
-    constructor(private _routeParams: RouteParams, builder: FormBuilder, private UrlSession: SessionUrlHandler) {
+    constructor(private _routeParams: RouteParams,                 
+                 private UrlSession: SessionUrlHandler,
+                 private prof:SessionProfileHandler,
+                 builder: FormBuilder) { 
+                     
         this.basicinfoForm = builder.group({
             displayname: ["", Validators.required],
             currentProfession: ["", Validators.required],

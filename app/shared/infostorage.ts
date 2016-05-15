@@ -7,8 +7,7 @@ export class SessionHandler {
   public modal ;
   
   constructor(modal: any){
-    console.log();
-    if(modal) {
+    if(!modal) {
       modal = 'common';
     }
     this.modal = modal;

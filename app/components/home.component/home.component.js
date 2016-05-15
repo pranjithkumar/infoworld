@@ -56,6 +56,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                         };
                         words.push(objWord);
                     });
+                    $('#col1').show();
                     $('#col1').jQCloud(words, {
                         width: 500,
                         height: 250,
@@ -101,6 +102,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './modal/urlform
                     if (formData.infoURL.trim()) {
                         upProgressElement.classList.add("loading-progress-up");
                         downProgressElement.classList.add("loading-progress-down");
+                        $('#col1').hide();
                         this.route.navigate(['Profiler', { profileurl: formData.infoURL }]);
                     }
                     else {

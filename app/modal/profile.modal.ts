@@ -21,7 +21,8 @@ class CardInfo {
 
 class BasicInfo {
     public profileImage: string;
-    public name: string;
+    public displayname: string;
+    public emailAddress: string;
     public phoneNumber: number;
     public contryCode: number;
     public address: string;

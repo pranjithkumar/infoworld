@@ -18,7 +18,13 @@
                 <button type="submit" class="submit-btn">
                 <i class="fa fa-check" aria-hidden="true"></i>
             </button>
-                <h4 #errorElement [hidden]="createFormStatus" class="error-message-hide">{{errorMessage}}</h4>
+
+                <div [class.error-message-show-smily]="errorMessage" [class.error-message-hide]="!errorMessage">
+                    <div class="error-leftEye"></div>
+                    <div class="error-rightEye"></div>
+                    <div class="error-mouth"></div>
+                </div>
+                <h4 #errorElement class="error-message-hide">{{errorMessage}}</h4>
             </div>
         </form>
     </div>

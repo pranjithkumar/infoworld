@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {NgForm} from '@angular/common';
-import {RouteParams, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {RouteParams, Router} from '@angular/router-deprecated';
 import {DelayService} from '../../../service/delayService';
 import {SessionUrlHandler} from '../../../shared/infostorage';
 
@@ -10,14 +10,14 @@ import CardInfo = require("cardinfo");
     selector: 'card-with-title',
     templateUrl: '../app/components/profiler.component/cards.component/cards.view.html',
     styleUrls: ['../app/components/profiler.component/cards.component/cards.css'],
-    providers: [DelayService, SessionUrlHandler],
-    directives: [ROUTER_DIRECTIVES]
+    providers: [DelayService, SessionUrlHandler]
 })
 export class CardComponent implements OnInit {
     @Input('cardEdit') cardEdit: boolean;
     @Input('cardArray') cardArray: CardInfo[];
     @Input('cardTitle') title: string;
 
+    private urlSearch: string;
     private cardEditUi: boolean = false;
     private defaltCard: boolean = false;
     private editStatus: boolean = false;
@@ -25,15 +25,16 @@ export class CardComponent implements OnInit {
     private year = [];
     private editOpen: boolean = false;
     private today: Date = new Date();
+    private errorForms: boolean;
 
-    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler) {
+    constructor(private _routeParams: RouteParams, private delayAsyn: DelayService, private UrlSession: SessionUrlHandler, private route: Router) {
 
     }
 
     ngOnInit() {
         var self = this;
-        let id = this._routeParams.get('profileurl');
-        console.log(id);
+        this.urlSearch = this._routeParams.get('profileurl');
+        console.log(this.urlSearch);
         self.defaltCard = (this.cardArray.length == 0) ? true : false;
         for (var i = 1930; i <= this.today.getFullYear() + 1; i++) {
             this.year.push(i);
@@ -41,6 +42,11 @@ export class CardComponent implements OnInit {
     }
 
     public AddCard() {
+        if (!this.cardEdit) {
+            this.route.navigate(['ProfilerEdit', { profileurl: this.urlSearch, edit: "edit" }]);
+            return;
+        }
+        
         if (this.cardArray.length > 0) {
             this.cardArray[0].addAnim = false;
         }

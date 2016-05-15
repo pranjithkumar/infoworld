@@ -259,6 +259,7 @@
 }
 
 .error-message-hide {
+    position:relative;
     height: 0;
     overflow: hidden;
     color:#F44336; 
@@ -269,6 +270,15 @@
 
 .error-message-show {
     height: 30px;
+    overflow: hidden;
+    -webkit-transition: all 1s ease ;
+    -moz-transition: all 1s ease ;
+    transition: all 1s ease ;
+}
+
+.error-message-show-smily {
+    position:relative;
+    height: 80px;
     overflow: hidden;
     -webkit-transition: all 1s ease ;
     -moz-transition: all 1s ease ;

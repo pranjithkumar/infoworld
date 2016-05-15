@@ -113,10 +113,10 @@ export class SessionUrlHandler extends SessionHandler {
   
   public getgravitor(sizeInMM: Number) : any {
       let data = this.getcontent();
-      if(data['basicInfo'] == undefined || data['basicInfo']['email'] == undefined) {
+      if(data['basicInfo'] == undefined || data['basicInfo']['emailAddress'] == undefined) {
         return false;
   }
-   return "http://www.gravatar.com/avatar/" + md5(data['basicInfo']['email']) + "?s="+sizeInMM+"&d=mm";
+   return "http://www.gravatar.com/avatar/" + md5(data['basicInfo']['emailAddress']) + "?s="+sizeInMM+"&d=mm";
     
  }
  

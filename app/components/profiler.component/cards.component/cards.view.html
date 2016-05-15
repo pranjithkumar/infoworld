@@ -42,5 +42,11 @@
             </div>
         </div>
     </div>
-    
+
+    <div *ngIf="cardArray.length == 0" class="card-continer" (click)="AddCard()" [class.card-continer-add-anim]="cardArray.length == 0" [class.card-continer-remove-anim]="cardArray.length != 0">
+        <div class="row card-inner-first-row-empty">
+            <div class="text-content"> Please add cards  <i class="fa fa-plus"></i></div>
+        </div>
+    </div>
+
 </div>

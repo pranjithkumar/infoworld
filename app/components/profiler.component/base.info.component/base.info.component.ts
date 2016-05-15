@@ -25,6 +25,7 @@ export class BaseDetailComponent implements OnInit {
             address: ["", Validators.required],
             contryCode: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
             phoneNumber: ["", Validators.compose([Validators.required, Validators.pattern('\d+')])],
+            emailAddress: ["", Validators.compose([Validators.required, this.emailValidator])],
         });
     }
 
@@ -33,12 +34,21 @@ export class BaseDetailComponent implements OnInit {
         console.log(this.baseInfo);
         this.profileImage = self.UrlSession.getgravitor(250);
         console.log(self.UrlSession.getgravitor(250));
-        
+
     }
 
     saveBasicInfo(data: any) {
         let self = this;
         console.log(data.value);
         self.UrlSession.updateKeyContent("basicInfo", data.value);
+    }
+    
+    emailValidator(control: Control): { [key: string]: any } {
+        var emailRegexp = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+        if (control && "value" in control) {
+            if (control.value && !emailRegexp.test(control.value)) {
+                return { invalidEmail: true };
+            }
+        }
     }
 }
